@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libxklavier-xklavier-private">
+<refmeta>
+<refentrytitle role="top_of_page" id="libxklavier-xklavier-private.top_of_page">xklavier_private</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>xklavier_private</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libxklavier-xklavier-private.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="XklEnginePrivate">XklEnginePrivate</link>;
+                    <link linkend="XklConfigRegistryPrivate">XklConfigRegistryPrivate</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libxklavier-xklavier-private.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libxklavier-xklavier-private.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="XklEnginePrivate" role="struct">
+<title>XklEnginePrivate</title>
+<indexterm zone="XklEnginePrivate"><primary sortas="XklEnginePrivate">XklEnginePrivate</primary></indexterm><programlisting>typedef struct _XklEnginePrivate XklEnginePrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklConfigRegistryPrivate" role="struct">
+<title>XklConfigRegistryPrivate</title>
+<indexterm zone="XklConfigRegistryPrivate"><primary sortas="XklConfigRegistryPrivate">XklConfigRegistryPrivate</primary></indexterm><programlisting>typedef struct _XklConfigRegistryPrivate XklConfigRegistryPrivate;</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

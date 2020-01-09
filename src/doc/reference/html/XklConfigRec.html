@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XklConfigRec</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Libxklavier Reference Manual">
+<link rel="up" href="ch01.html" title="Libxklavier Objects">
+<link rel="prev" href="XklConfigItem.html" title="XklConfigItem">
+<link rel="next" href="XklConfigRegistry.html" title="XklConfigRegistry">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Libxklavier Objects">
+<link rel="chapter" href="ch02.html" title="Libxklavier Utilities">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="XklConfigItem.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxklavier Reference Manual</th>
+<td><a accesskey="n" href="XklConfigRegistry.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#XklConfigRec.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#XklConfigRec.description" class="shortcut">Description</a>
+                 | 
+                <a href="#XklConfigRec.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="XklConfigRec"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XklConfigRec.top_of_page"></a>XklConfigRec</span></h2>
+<p>XklConfigRec</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="XklConfigRec.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="XklConfigRec.html#XklConfigRec-struct" title="XklConfigRec">XklConfigRec</a>;
+<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *      <a class="link" href="XklConfigRec.html#xkl-config-rec-new" title="xkl_config_rec_new ()">xkl_config_rec_new</a>                  (void);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-activate" title="xkl_config_rec_activate ()">xkl_config_rec_activate</a>             (const <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-get-from-server" title="xkl_config_rec_get_from_server ()">xkl_config_rec_get_from_server</a>      (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-get-from-backup" title="xkl_config_rec_get_from_backup ()">xkl_config_rec_get_from_backup</a>      (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-write-to-file" title="xkl_config_rec_write_to_file ()">xkl_config_rec_write_to_file</a>        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *file_name,
+                                                         const <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         const gbooleanbinary );
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-get-from-root-window-property" title="xkl_config_rec_get_from_root_window_property ()">xkl_config_rec_get_from_root_window_property</a>
+                                                        (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *config_out,
+                                                         Atomrules_atom_name ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **rules_file_out,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-set-to-root-window-property" title="xkl_config_rec_set_to_root_window_property ()">xkl_config_rec_set_to_root_window_property</a>
+                                                        (constXklConfigRec *config,
+                                                         Atomrules_atom_name ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *rules_file,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-engine-backup-names-prop" title="xkl_engine_backup_names_prop ()">xkl_engine_backup_names_prop</a>        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-restore-names-prop" title="xkl_restore_names_prop ()">xkl_restore_names_prop</a>              (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+void                <a class="link" href="XklConfigRec.html#xkl-config-rec-reset" title="xkl_config_rec_reset ()">xkl_config_rec_reset</a>                (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRec.html#xkl-config-rec-equals" title="xkl_config_rec_equals ()">xkl_config_rec_equals</a>               (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data1,
+                                                         <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data2);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRec.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----XklConfigRec
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRec.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRec.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklConfigRec-struct"></a><h3>XklConfigRec</h3>
+<pre class="programlisting">typedef struct _XklConfigRec XklConfigRec;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-new"></a><h3>xkl_config_rec_new ()</h3>
+<pre class="programlisting"><a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *      xkl_config_rec_new                  (void);</pre>
+<p>
+Create new XklConfigRec</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> new instance
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-activate"></a><h3>xkl_config_rec_activate ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_activate             (const <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Activates some XKB configuration
+description. Can be NULL</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> valid XKB configuration
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-get-from-server"></a><h3>xkl_config_rec_get_from_server ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_get_from_server      (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Loads the current XKB configuration (from X server)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> buffer for XKB configuration
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-get-from-backup"></a><h3>xkl_config_rec_get_from_backup ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_get_from_backup      (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Loads the current XKB configuration (from backup)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> buffer for XKB configuration
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-write-to-file"></a><h3>xkl_config_rec_write_to_file ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_write_to_file        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *file_name,
+                                                         const <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data,
+                                                         const gbooleanbinary );</pre>
+<p>
+Writes some XKB configuration into XKM/XKB/... file</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
+<td> name of the file to create
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> valid XKB configuration
+description. Can be NULL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param4</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-get-from-root-window-property"></a><h3>xkl_config_rec_get_from_root_window_property ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_get_from_root_window_property
+                                                        (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *config_out,
+                                                         Atomrules_atom_name ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **rules_file_out,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Gets the XKB configuration from any root window property</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config_out</code></em> :</span></p></td>
+<td> buffer to hold the result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rules_file_out</code></em> :</span></p></td>
+<td> pointer to hold the file name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-set-to-root-window-property"></a><h3>xkl_config_rec_set_to_root_window_property ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_set_to_root_window_property
+                                                        (constXklConfigRec *config,
+                                                         Atomrules_atom_name ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *rules_file,
+                                                         <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Saves the XKB configuration into any root window property</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> configuration to save 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rules_file</code></em> :</span></p></td>
+<td> rules file name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-backup-names-prop"></a><h3>xkl_engine_backup_names_prop ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_backup_names_prop        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Backups current XKB configuration into some property - 
+if this property is not defined yet.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-restore-names-prop"></a><h3>xkl_restore_names_prop ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_restore_names_prop              (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Restores XKB from the property saved by xkl_backup_names_prop</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-reset"></a><h3>xkl_config_rec_reset ()</h3>
+<pre class="programlisting">void                xkl_config_rec_reset                (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data);</pre>
+<p>
+Resets the record (equal to Destroy and Init)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> record to reset
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-rec-equals"></a><h3>xkl_config_rec_equals ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_rec_equals               (<a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data1,
+                                                         <a class="link" href="XklConfigRec.html" title="XklConfigRec">XklConfigRec</a> *data2);</pre>
+<p>
+Compares two records</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data1</code></em> :</span></p></td>
+<td> record to compare
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data2</code></em> :</span></p></td>
+<td> another record
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if records are same
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

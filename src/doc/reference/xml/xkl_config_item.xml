@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="XklConfigItem">
+<refmeta>
+<refentrytitle role="top_of_page" id="XklConfigItem.top_of_page">XklConfigItem</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>XklConfigItem</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="XklConfigItem.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="XKL-MAX-CI-NAME-LENGTH--CAPS">XKL_MAX_CI_NAME_LENGTH</link>
+#define             <link linkend="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS">XKL_MAX_CI_SHORT_DESC_LENGTH</link>
+#define             <link linkend="XKL-MAX-CI-DESC-LENGTH--CAPS">XKL_MAX_CI_DESC_LENGTH</link>
+#define             <link linkend="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS">XCI_PROP_ALLOW_MULTIPLE_SELECTION</link>
+#define             <link linkend="XCI-PROP-VENDOR--CAPS">XCI_PROP_VENDOR</link>
+#define             <link linkend="XCI-PROP-COUNTRY-LIST--CAPS">XCI_PROP_COUNTRY_LIST</link>
+#define             <link linkend="XCI-PROP-LANGUAGE-LIST--CAPS">XCI_PROP_LANGUAGE_LIST</link>
+                    <link linkend="XklConfigItem-struct">XklConfigItem</link>;
+<link linkend="XklConfigItem">XklConfigItem</link> *     <link linkend="xkl-config-item-new">xkl_config_item_new</link>                 (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="XklConfigItem.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----XklConfigItem
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="XklConfigItem.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="XklConfigItem.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="XKL-MAX-CI-NAME-LENGTH--CAPS" role="macro">
+<title>XKL_MAX_CI_NAME_LENGTH</title>
+<indexterm zone="XKL-MAX-CI-NAME-LENGTH--CAPS"><primary sortas="XKL_MAX_CI_NAME_LENGTH">XKL_MAX_CI_NAME_LENGTH</primary></indexterm><programlisting>#define XKL_MAX_CI_NAME_LENGTH 32
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS" role="macro">
+<title>XKL_MAX_CI_SHORT_DESC_LENGTH</title>
+<indexterm zone="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS"><primary sortas="XKL_MAX_CI_SHORT_DESC_LENGTH">XKL_MAX_CI_SHORT_DESC_LENGTH</primary></indexterm><programlisting>#define XKL_MAX_CI_SHORT_DESC_LENGTH 10
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XKL-MAX-CI-DESC-LENGTH--CAPS" role="macro">
+<title>XKL_MAX_CI_DESC_LENGTH</title>
+<indexterm zone="XKL-MAX-CI-DESC-LENGTH--CAPS"><primary sortas="XKL_MAX_CI_DESC_LENGTH">XKL_MAX_CI_DESC_LENGTH</primary></indexterm><programlisting>#define XKL_MAX_CI_DESC_LENGTH 192
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS" role="macro">
+<title>XCI_PROP_ALLOW_MULTIPLE_SELECTION</title>
+<indexterm zone="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS"><primary sortas="XCI_PROP_ALLOW_MULTIPLE_SELECTION">XCI_PROP_ALLOW_MULTIPLE_SELECTION</primary></indexterm><programlisting>#define XCI_PROP_ALLOW_MULTIPLE_SELECTION "allowMultipleSelection"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XCI-PROP-VENDOR--CAPS" role="macro">
+<title>XCI_PROP_VENDOR</title>
+<indexterm zone="XCI-PROP-VENDOR--CAPS"><primary sortas="XCI_PROP_VENDOR">XCI_PROP_VENDOR</primary></indexterm><programlisting>#define XCI_PROP_VENDOR "vendor"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XCI-PROP-COUNTRY-LIST--CAPS" role="macro">
+<title>XCI_PROP_COUNTRY_LIST</title>
+<indexterm zone="XCI-PROP-COUNTRY-LIST--CAPS"><primary sortas="XCI_PROP_COUNTRY_LIST">XCI_PROP_COUNTRY_LIST</primary></indexterm><programlisting>#define XCI_PROP_COUNTRY_LIST "countryList"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XCI-PROP-LANGUAGE-LIST--CAPS" role="macro">
+<title>XCI_PROP_LANGUAGE_LIST</title>
+<indexterm zone="XCI-PROP-LANGUAGE-LIST--CAPS"><primary sortas="XCI_PROP_LANGUAGE_LIST">XCI_PROP_LANGUAGE_LIST</primary></indexterm><programlisting>#define XCI_PROP_LANGUAGE_LIST "languageList"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklConfigItem-struct" role="struct">
+<title>XklConfigItem</title>
+<indexterm zone="XklConfigItem-struct"><primary sortas="XklConfigItem">XklConfigItem</primary></indexterm><programlisting>typedef struct _XklConfigItem XklConfigItem;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="xkl-config-item-new" role="function">
+<title>xkl_config_item_new ()</title>
+<indexterm zone="xkl-config-item-new"><primary sortas="xkl_config_item_new">xkl_config_item_new</primary></indexterm><programlisting><link linkend="XklConfigItem">XklConfigItem</link> *     xkl_config_item_new                 (void);</programlisting>
+<para>
+Create new XklConfigItem</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> new instance
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

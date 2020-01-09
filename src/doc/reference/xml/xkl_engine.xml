@@ -1,0 +1,860 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="XklEngine">
+<refmeta>
+<refentrytitle role="top_of_page" id="XklEngine.top_of_page">XklEngine</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>XklEngine</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="XklEngine.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="XklEnginePrivate">XklEnginePrivate</link>;
+enum                <link linkend="XklEngineStateChange">XklEngineStateChange</link>;
+enum                <link linkend="XklEngineFeatures">XklEngineFeatures</link>;
+                    <link linkend="XklState">XklState</link>;
+                    <link linkend="XklEngine-struct">XklEngine</link>;
+<link linkend="XklEngine">XklEngine</link> *         <link linkend="xkl-engine-get-instance">xkl_engine_get_instance</link>             (<link linkend="Display">Display</link> *display);
+const <link linkend="gchar">gchar</link> *       <link linkend="xkl-engine-get-backend-name">xkl_engine_get_backend_name</link>         (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="guint">guint</link>               <link linkend="xkl-engine-get-features">xkl_engine_get_features</link>             (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="guint">guint</link>               <link linkend="xkl-engine-get-max-num-groups">xkl_engine_get_max_num_groups</link>       (<link linkend="XklEngine">XklEngine</link> *engine);
+enum                <link linkend="XklEngineListenModes">XklEngineListenModes</link>;
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-start-listen">xkl_engine_start_listen</link>             (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="guint">guint</link> flags);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-stop-listen">xkl_engine_stop_listen</link>              (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-pause-listen">xkl_engine_pause_listen</link>             (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-resume-listen">xkl_engine_resume_listen</link>            (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-grab-key">xkl_engine_grab_key</link>                 (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> keycode,
+                                                         <link linkend="guint">guint</link> modifiers);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-ungrab-key">xkl_engine_ungrab_key</link>               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> keycode,
+                                                         <link linkend="guint">guint</link> modifiers);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-filter-events">xkl_engine_filter_events</link>            (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="XEvent">XEvent</link> *evt);
+<link linkend="void">void</link>                <link linkend="xkl-engine-allow-one-switch-to-secondary-group">xkl_engine_allow_one_switch_to_secondary_group</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="Window">Window</link>              <link linkend="xkl-engine-get-current-window">xkl_engine_get_current_window</link>       (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="XklState">XklState</link> *          <link linkend="xkl-engine-get-current-state">xkl_engine_get_current_state</link>        (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gchar">gchar</link> *             <link linkend="xkl-engine-get-window-title">xkl_engine_get_window_title</link>         (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-get-state">xkl_engine_get_state</link>                (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="XklState">XklState</link> *state_out);
+<link linkend="void">void</link>                <link linkend="xkl-engine-delete-state">xkl_engine_delete_state</link>             (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);
+<link linkend="void">void</link>                <link linkend="xkl-engine-save-state">xkl_engine_save_state</link>               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="XklState">XklState</link> *state);
+<link linkend="void">void</link>                <link linkend="xkl-engine-set-window-transparent">xkl_engine_set_window_transparent</link>   (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="gbooleantransparent">gbooleantransparent</link> );
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-is-window-transparent">xkl_engine_is_window_transparent</link>    (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-is-window-from-same-toplevel-window">xkl_engine_is_window_from_same_toplevel_window</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win1,
+                                                         <link linkend="Window">Window</link> win2);
+<link linkend="guint">guint</link>               <link linkend="xkl-engine-get-num-groups">xkl_engine_get_num_groups</link>           (<link linkend="XklEngine">XklEngine</link> *engine);
+const <link linkend="gchar">gchar</link> **      <link linkend="xkl-engine-get-groups-names">xkl_engine_get_groups_names</link>         (<link linkend="XklEngine">XklEngine</link> *engine);
+const <link linkend="gchar">gchar</link> **      <link linkend="xkl-engine-get-indicators-names">xkl_engine_get_indicators_names</link>     (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-get-next-group">xkl_engine_get_next_group</link>           (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-get-prev-group">xkl_engine_get_prev_group</link>           (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-get-current-window-group">xkl_engine_get_current_window_group</link> (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="void">void</link>                <link linkend="xkl-engine-lock-group">xkl_engine_lock_group</link>               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> group);
+<link linkend="void">void</link>                <link linkend="xkl-engine-set-group-per-toplevel-window">xkl_engine_set_group_per_toplevel_window</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gbooleanis-global">gbooleanis_global</link> );
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-is-group-per-toplevel-window">xkl_engine_is_group_per_toplevel_window</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="void">void</link>                <link linkend="xkl-engine-set-indicators-handling">xkl_engine_set_indicators_handling</link>  (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gbooleanwhether-handle">gbooleanwhether_handle</link> );
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-get-indicators-handling">xkl_engine_get_indicators_handling</link>  (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="void">void</link>                <link linkend="xkl-engine-set-secondary-groups-mask">xkl_engine_set_secondary_groups_mask</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="guint">guint</link> mask);
+<link linkend="guint">guint</link>               <link linkend="xkl-engine-get-secondary-groups-mask">xkl_engine_get_secondary_groups_mask</link>
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="void">void</link>                <link linkend="xkl-engine-set-default-group">xkl_engine_set_default_group</link>        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> group);
+<link linkend="gint">gint</link>                <link linkend="xkl-engine-get-default-group">xkl_engine_get_default_group</link>        (<link linkend="XklEngine">XklEngine</link> *engine);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="XklEngine.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----XklEngine
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="XklEngine.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="XklEngine--backendName">backendName</link>&quot;              <link linkend="gchar">gchar</link>*                : Read
+  &quot;<link linkend="XklEngine--default-group">default-group</link>&quot;            <link linkend="guint">guint</link>                 : Read
+  &quot;<link linkend="XklEngine--display">display</link>&quot;                  <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="XklEngine--indicators-handling">indicators-handling</link>&quot;      <link linkend="gboolean">gboolean</link>              : Read
+  &quot;<link linkend="XklEngine--max-num-groups">max-num-groups</link>&quot;           <link linkend="guint">guint</link>                 : Read
+  &quot;<link linkend="XklEngine--num-groups">num-groups</link>&quot;               <link linkend="guint">guint</link>                 : Read
+  &quot;<link linkend="XklEngine--secondary-groups-mask">secondary-groups-mask</link>&quot;    <link linkend="guint">guint</link>                 : Read
+</synopsis>
+</refsect1>
+
+<refsect1 id="XklEngine.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="XklEngine-X-config-changed">X-config-changed</link>&quot;                               : Run Last
+  &quot;<link linkend="XklEngine-X-new-device">X-new-device</link>&quot;                                   : Run Last
+  &quot;<link linkend="XklEngine-X-state-changed">X-state-changed</link>&quot;                                : Run Last
+  &quot;<link linkend="XklEngine-new-toplevel-window">new-toplevel-window</link>&quot;                            : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="XklEngine.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="XklEngine.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="XklEnginePrivate" role="struct">
+<title>XklEnginePrivate</title>
+<indexterm zone="XklEnginePrivate"><primary sortas="XklEnginePrivate">XklEnginePrivate</primary></indexterm><programlisting>typedef struct _XklEnginePrivate XklEnginePrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklEngineStateChange" role="enum">
+<title>enum XklEngineStateChange</title>
+<indexterm zone="XklEngineStateChange"><primary sortas="XklEngineStateChange">XklEngineStateChange</primary></indexterm><programlisting>	typedef enum {
+		GROUP_CHANGED,
+		INDICATORS_CHANGED
+	} XklEngineStateChange;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklEngineFeatures" role="enum">
+<title>enum XklEngineFeatures</title>
+<indexterm zone="XklEngineFeatures"><primary sortas="XklEngineFeatures">XklEngineFeatures</primary></indexterm><programlisting>	typedef enum {
+		XKLF_CAN_TOGGLE_INDICATORS = 0x01,
+		XKLF_CAN_OUTPUT_CONFIG_AS_ASCII = 0x02,
+		XKLF_CAN_OUTPUT_CONFIG_AS_BINARY = 0x04,
+		XKLF_MULTIPLE_LAYOUTS_SUPPORTED = 0x08,
+		XKLF_REQUIRES_MANUAL_LAYOUT_MANAGEMENT = 0x10,
+		XKLF_DEVICE_DISCOVERY = 0x20
+	} XklEngineFeatures;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklState" role="struct">
+<title>XklState</title>
+<indexterm zone="XklState"><primary sortas="XklState">XklState</primary></indexterm><programlisting>typedef struct {
+/** 
+ * selected group 
+ */
+		gint32 group;
+/**
+ * set of active indicators
+ */
+		guint32 indicators;
+} XklState;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklEngine-struct" role="struct">
+<title>XklEngine</title>
+<indexterm zone="XklEngine-struct"><primary sortas="XklEngine">XklEngine</primary></indexterm><programlisting>typedef struct _XklEngine XklEngine;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="xkl-engine-get-instance" role="function">
+<title>xkl_engine_get_instance ()</title>
+<indexterm zone="xkl-engine-get-instance"><primary sortas="xkl_engine_get_instance">xkl_engine_get_instance</primary></indexterm><programlisting><link linkend="XklEngine">XklEngine</link> *         xkl_engine_get_instance             (<link linkend="Display">Display</link> *display);</programlisting>
+<para>
+Get the instance of the XklEngine. Within a process, there is always once instance.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&#160;:</term>
+<listitem><simpara> the X display used by the application
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the singleton instance
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-backend-name" role="function">
+<title>xkl_engine_get_backend_name ()</title>
+<indexterm zone="xkl-engine-get-backend-name"><primary sortas="xkl_engine_get_backend_name">xkl_engine_get_backend_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       xkl_engine_get_backend_name         (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+What kind of backend is used</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> some string id of the backend
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-features" role="function">
+<title>xkl_engine_get_features ()</title>
+<indexterm zone="xkl-engine-get-features"><primary sortas="xkl_engine_get_features">xkl_engine_get_features</primary></indexterm><programlisting><link linkend="guint">guint</link>               xkl_engine_get_features             (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Provides information regarding available backend features
+(combination of XKLF_* constants)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> ORed XKLF_* constants
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-max-num-groups" role="function">
+<title>xkl_engine_get_max_num_groups ()</title>
+<indexterm zone="xkl-engine-get-max-num-groups"><primary sortas="xkl_engine_get_max_num_groups">xkl_engine_get_max_num_groups</primary></indexterm><programlisting><link linkend="guint">guint</link>               xkl_engine_get_max_num_groups       (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Provides the information on maximum number of simultaneously supported 
+groups (layouts)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> maximum number of the groups in configuration, 
+        0 if no restrictions.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="XklEngineListenModes" role="enum">
+<title>enum XklEngineListenModes</title>
+<indexterm zone="XklEngineListenModes"><primary sortas="XklEngineListenModes">XklEngineListenModes</primary></indexterm><programlisting>	typedef enum {
+		XKLL_MANAGE_WINDOW_STATES = 0x01,
+		XKLL_TRACK_KEYBOARD_STATE = 0x02,
+		XKLL_MANAGE_LAYOUTS = 0x04
+	} XklEngineListenModes;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="xkl-engine-start-listen" role="function">
+<title>xkl_engine_start_listen ()</title>
+<indexterm zone="xkl-engine-start-listen"><primary sortas="xkl_engine_start_listen">xkl_engine_start_listen</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_start_listen             (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="guint">guint</link> flags);</programlisting>
+<para>
+Starts listening for XKB-related events</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> any combination of XKLL_* constants
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-stop-listen" role="function">
+<title>xkl_engine_stop_listen ()</title>
+<indexterm zone="xkl-engine-stop-listen"><primary sortas="xkl_engine_stop_listen">xkl_engine_stop_listen</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_stop_listen              (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Stops listening for XKB-related events</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-pause-listen" role="function">
+<title>xkl_engine_pause_listen ()</title>
+<indexterm zone="xkl-engine-pause-listen"><primary sortas="xkl_engine_pause_listen">xkl_engine_pause_listen</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_pause_listen             (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Temporary pauses listening for XKB-related events</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-resume-listen" role="function">
+<title>xkl_engine_resume_listen ()</title>
+<indexterm zone="xkl-engine-resume-listen"><primary sortas="xkl_engine_resume_listen">xkl_engine_resume_listen</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_resume_listen            (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Resumes listening for XKB-related events</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-grab-key" role="function">
+<title>xkl_engine_grab_key ()</title>
+<indexterm zone="xkl-engine-grab-key"><primary sortas="xkl_engine_grab_key">xkl_engine_grab_key</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_grab_key                 (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> keycode,
+                                                         <link linkend="guint">guint</link> modifiers);</programlisting>
+<para>
+Grabs some key</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>keycode</parameter>&#160;:</term>
+<listitem><simpara> keycode
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>modifiers</parameter>&#160;:</term>
+<listitem><simpara> bitmask of modifiers
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-ungrab-key" role="function">
+<title>xkl_engine_ungrab_key ()</title>
+<indexterm zone="xkl-engine-ungrab-key"><primary sortas="xkl_engine_ungrab_key">xkl_engine_ungrab_key</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_ungrab_key               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> keycode,
+                                                         <link linkend="guint">guint</link> modifiers);</programlisting>
+<para>
+Ungrabs some key</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>keycode</parameter>&#160;:</term>
+<listitem><simpara> keycode
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>modifiers</parameter>&#160;:</term>
+<listitem><simpara> bitmask of modifiers
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-filter-events" role="function">
+<title>xkl_engine_filter_events ()</title>
+<indexterm zone="xkl-engine-filter-events"><primary sortas="xkl_engine_filter_events">xkl_engine_filter_events</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_filter_events            (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="XEvent">XEvent</link> *evt);</programlisting>
+<para>
+Processes X events. Should be included into the main event cycle of an
+application. One of the most important functions.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>evt</parameter>&#160;:</term>
+<listitem><simpara> delivered X event
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0 if the event it processed - 1 otherwise
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-allow-one-switch-to-secondary-group" role="function">
+<title>xkl_engine_allow_one_switch_to_secondary_group ()</title>
+<indexterm zone="xkl-engine-allow-one-switch-to-secondary-group"><primary sortas="xkl_engine_allow_one_switch_to_secondary_group">xkl_engine_allow_one_switch_to_secondary_group</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_allow_one_switch_to_secondary_group
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Allows to switch (once) to the secondary group</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-current-window" role="function">
+<title>xkl_engine_get_current_window ()</title>
+<indexterm zone="xkl-engine-get-current-window"><primary sortas="xkl_engine_get_current_window">xkl_engine_get_current_window</primary></indexterm><programlisting><link linkend="Window">Window</link>              xkl_engine_get_current_window       (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> currently focused window
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-current-state" role="function">
+<title>xkl_engine_get_current_state ()</title>
+<indexterm zone="xkl-engine-get-current-state"><primary sortas="xkl_engine_get_current_state">xkl_engine_get_current_state</primary></indexterm><programlisting><link linkend="XklState">XklState</link> *          xkl_engine_get_current_state        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> current state of the keyboard.
+Returned value is a statically allocated buffer, should not be freed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-window-title" role="function">
+<title>xkl_engine_get_window_title ()</title>
+<indexterm zone="xkl-engine-get-window-title"><primary sortas="xkl_engine_get_window_title">xkl_engine_get_window_title</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             xkl_engine_get_window_title         (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> X window
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the window title of some window or NULL. 
+If not NULL, it should be freed with XFree
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-state" role="function">
+<title>xkl_engine_get_state ()</title>
+<indexterm zone="xkl-engine-get-state"><primary sortas="xkl_engine_get_state">xkl_engine_get_state</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_get_state                (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="XklState">XklState</link> *state_out);</programlisting>
+<para>
+Finds the state for a given window (for its "App window").</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> window to query
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state_out</parameter>&#160;:</term>
+<listitem><simpara> structure to store the state
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success, otherwise FALSE 
+(the error message can be obtained using xkl_GetLastError).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-delete-state" role="function">
+<title>xkl_engine_delete_state ()</title>
+<indexterm zone="xkl-engine-delete-state"><primary sortas="xkl_engine_delete_state">xkl_engine_delete_state</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_delete_state             (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);</programlisting>
+<para>
+Drops the state of a given window (of its "App window").</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> target window
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-save-state" role="function">
+<title>xkl_engine_save_state ()</title>
+<indexterm zone="xkl-engine-save-state"><primary sortas="xkl_engine_save_state">xkl_engine_save_state</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_save_state               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="XklState">XklState</link> *state);</programlisting>
+<para>
+Stores ths state for a given window</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> target window
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&#160;:</term>
+<listitem><simpara> new state of the window
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-set-window-transparent" role="function">
+<title>xkl_engine_set_window_transparent ()</title>
+<indexterm zone="xkl-engine-set-window-transparent"><primary sortas="xkl_engine_set_window_transparent">xkl_engine_set_window_transparent</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_set_window_transparent   (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win,
+                                                         <link linkend="gbooleantransparent">gbooleantransparent</link> );</programlisting>
+<para>
+Sets the "transparent" flag. It means focus switching onto 
+this window will never change the state.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> window do set the flag for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-is-window-transparent" role="function">
+<title>xkl_engine_is_window_transparent ()</title>
+<indexterm zone="xkl-engine-is-window-transparent"><primary sortas="xkl_engine_is_window_transparent">xkl_engine_is_window_transparent</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_is_window_transparent    (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win</parameter>&#160;:</term>
+<listitem><simpara> window to get the transparent flag from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if the window is "transparent"
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-is-window-from-same-toplevel-window" role="function">
+<title>xkl_engine_is_window_from_same_toplevel_window ()</title>
+<indexterm zone="xkl-engine-is-window-from-same-toplevel-window"><primary sortas="xkl_engine_is_window_from_same_toplevel_window">xkl_engine_is_window_from_same_toplevel_window</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_is_window_from_same_toplevel_window
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="Window">Window</link> win1,
+                                                         <link linkend="Window">Window</link> win2);</programlisting>
+<para>
+Checks whether 2 windows have the same topmost window</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win1</parameter>&#160;:</term>
+<listitem><simpara> first window
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>win2</parameter>&#160;:</term>
+<listitem><simpara> second window
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE is windows are in the same application
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-num-groups" role="function">
+<title>xkl_engine_get_num_groups ()</title>
+<indexterm zone="xkl-engine-get-num-groups"><primary sortas="xkl_engine_get_num_groups">xkl_engine_get_num_groups</primary></indexterm><programlisting><link linkend="guint">guint</link>               xkl_engine_get_num_groups           (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the total number of groups in the current configuration 
+(keyboard)
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-groups-names" role="function">
+<title>xkl_engine_get_groups_names ()</title>
+<indexterm zone="xkl-engine-get-groups-names"><primary sortas="xkl_engine_get_groups_names">xkl_engine_get_groups_names</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> **      xkl_engine_get_groups_names         (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the array of group names for the current XKB configuration 
+(keyboard).
+This array is static, should not be freed
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-indicators-names" role="function">
+<title>xkl_engine_get_indicators_names ()</title>
+<indexterm zone="xkl-engine-get-indicators-names"><primary sortas="xkl_engine_get_indicators_names">xkl_engine_get_indicators_names</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> **      xkl_engine_get_indicators_names     (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the array of indicator names for the current XKB configuration 
+(keyboard).
+This array is static, should not be freed
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-next-group" role="function">
+<title>xkl_engine_get_next_group ()</title>
+<indexterm zone="xkl-engine-get-next-group"><primary sortas="xkl_engine_get_next_group">xkl_engine_get_next_group</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_get_next_group           (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Calculates next group id. Does not change the state of anything.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> next group id
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-prev-group" role="function">
+<title>xkl_engine_get_prev_group ()</title>
+<indexterm zone="xkl-engine-get-prev-group"><primary sortas="xkl_engine_get_prev_group">xkl_engine_get_prev_group</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_get_prev_group           (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Calculates prev group id. Does not change the state of anything.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> prev group id
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-current-window-group" role="function">
+<title>xkl_engine_get_current_window_group ()</title>
+<indexterm zone="xkl-engine-get-current-window-group"><primary sortas="xkl_engine_get_current_window_group">xkl_engine_get_current_window_group</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_get_current_window_group (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> saved group id of the current window. 
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-lock-group" role="function">
+<title>xkl_engine_lock_group ()</title>
+<indexterm zone="xkl-engine-lock-group"><primary sortas="xkl_engine_lock_group">xkl_engine_lock_group</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_lock_group               (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> group);</programlisting>
+<para>
+Locks the group. Can be used after xkl_GetXXXGroup functions</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group</parameter>&#160;:</term>
+<listitem><simpara> group number for locking
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-set-group-per-toplevel-window" role="function">
+<title>xkl_engine_set_group_per_toplevel_window ()</title>
+<indexterm zone="xkl-engine-set-group-per-toplevel-window"><primary sortas="xkl_engine_set_group_per_toplevel_window">xkl_engine_set_group_per_toplevel_window</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_set_group_per_toplevel_window
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gbooleanis-global">gbooleanis_global</link> );</programlisting>
+<para>
+Sets the configuration parameter: group per application</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-is-group-per-toplevel-window" role="function">
+<title>xkl_engine_is_group_per_toplevel_window ()</title>
+<indexterm zone="xkl-engine-is-group-per-toplevel-window"><primary sortas="xkl_engine_is_group_per_toplevel_window">xkl_engine_is_group_per_toplevel_window</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_is_group_per_toplevel_window
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the value of the parameter: group per application
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-set-indicators-handling" role="function">
+<title>xkl_engine_set_indicators_handling ()</title>
+<indexterm zone="xkl-engine-set-indicators-handling"><primary sortas="xkl_engine_set_indicators_handling">xkl_engine_set_indicators_handling</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_set_indicators_handling  (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gbooleanwhether-handle">gbooleanwhether_handle</link> );</programlisting>
+<para>
+Sets the configuration parameter: perform indicators handling</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-indicators-handling" role="function">
+<title>xkl_engine_get_indicators_handling ()</title>
+<indexterm zone="xkl-engine-get-indicators-handling"><primary sortas="xkl_engine_get_indicators_handling">xkl_engine_get_indicators_handling</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_get_indicators_handling  (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the value of the parameter: perform indicator handling
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-set-secondary-groups-mask" role="function">
+<title>xkl_engine_set_secondary_groups_mask ()</title>
+<indexterm zone="xkl-engine-set-secondary-groups-mask"><primary sortas="xkl_engine_set_secondary_groups_mask">xkl_engine_set_secondary_groups_mask</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_set_secondary_groups_mask
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="guint">guint</link> mask);</programlisting>
+<para>
+Sets the secondary groups (one bit per group). 
+Secondary groups require explicit "allowance" for switching</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask</parameter>&#160;:</term>
+<listitem><simpara> new group mask
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-secondary-groups-mask" role="function">
+<title>xkl_engine_get_secondary_groups_mask ()</title>
+<indexterm zone="xkl-engine-get-secondary-groups-mask"><primary sortas="xkl_engine_get_secondary_groups_mask">xkl_engine_get_secondary_groups_mask</primary></indexterm><programlisting><link linkend="guint">guint</link>               xkl_engine_get_secondary_groups_mask
+                                                        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the secondary group mask
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-set-default-group" role="function">
+<title>xkl_engine_set_default_group ()</title>
+<indexterm zone="xkl-engine-set-default-group"><primary sortas="xkl_engine_set_default_group">xkl_engine_set_default_group</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_engine_set_default_group        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         <link linkend="gint">gint</link> group);</programlisting>
+<para>
+Configures the default group set on window creation.
+If -1, no default group is used</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group</parameter>&#160;:</term>
+<listitem><simpara> default group
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-get-default-group" role="function">
+<title>xkl_engine_get_default_group ()</title>
+<indexterm zone="xkl-engine-get-default-group"><primary sortas="xkl_engine_get_default_group">xkl_engine_get_default_group</primary></indexterm><programlisting><link linkend="gint">gint</link>                xkl_engine_get_default_group        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Returns the default group set on window creation
+If -1, no default group is used</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the default group
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="XklEngine.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="XklEngine--backendName" role="property"><title>The <literal>&quot;backendName&quot;</literal> property</title>
+<indexterm zone="XklEngine--backendName"><primary sortas="XklEngine:backendName">XklEngine:backendName</primary></indexterm><programlisting>  &quot;backendName&quot;              <link linkend="gchar">gchar</link>*                : Read</programlisting>
+<para>Backend name.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="XklEngine--default-group" role="property"><title>The <literal>&quot;default-group&quot;</literal> property</title>
+<indexterm zone="XklEngine--default-group"><primary sortas="XklEngine:default-group">XklEngine:default-group</primary></indexterm><programlisting>  &quot;default-group&quot;            <link linkend="guint">guint</link>                 : Read</programlisting>
+<para>Default group.</para><para>Allowed values: &lt;= 256</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="XklEngine--display" role="property"><title>The <literal>&quot;display&quot;</literal> property</title>
+<indexterm zone="XklEngine--display"><primary sortas="XklEngine:display">XklEngine:display</primary></indexterm><programlisting>  &quot;display&quot;                  <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>X Display pointer.</para></refsect2>
+<refsect2 id="XklEngine--indicators-handling" role="property"><title>The <literal>&quot;indicators-handling&quot;</literal> property</title>
+<indexterm zone="XklEngine--indicators-handling"><primary sortas="XklEngine:indicators-handling">XklEngine:indicators-handling</primary></indexterm><programlisting>  &quot;indicators-handling&quot;      <link linkend="gboolean">gboolean</link>              : Read</programlisting>
+<para>Whether engine should handle indicators.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="XklEngine--max-num-groups" role="property"><title>The <literal>&quot;max-num-groups&quot;</literal> property</title>
+<indexterm zone="XklEngine--max-num-groups"><primary sortas="XklEngine:max-num-groups">XklEngine:max-num-groups</primary></indexterm><programlisting>  &quot;max-num-groups&quot;           <link linkend="guint">guint</link>                 : Read</programlisting>
+<para>Max number of groups.</para><para>Allowed values: &lt;= 256</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="XklEngine--num-groups" role="property"><title>The <literal>&quot;num-groups&quot;</literal> property</title>
+<indexterm zone="XklEngine--num-groups"><primary sortas="XklEngine:num-groups">XklEngine:num-groups</primary></indexterm><programlisting>  &quot;num-groups&quot;               <link linkend="guint">guint</link>                 : Read</programlisting>
+<para>Current number of groups.</para><para>Allowed values: &lt;= 256</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="XklEngine--secondary-groups-mask" role="property"><title>The <literal>&quot;secondary-groups-mask&quot;</literal> property</title>
+<indexterm zone="XklEngine--secondary-groups-mask"><primary sortas="XklEngine:secondary-groups-mask">XklEngine:secondary-groups-mask</primary></indexterm><programlisting>  &quot;secondary-groups-mask&quot;    <link linkend="guint">guint</link>                 : Read</programlisting>
+<para>Secondary groups mask.</para><para>Allowed values: &lt;= 256</para>
+<para>Default value: 0</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="XklEngine.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="XklEngine-X-config-changed" role="signal"><title>The <literal>&quot;X-config-changed&quot;</literal> signal</title>
+<indexterm zone="XklEngine-X-config-changed"><primary sortas="XklEngine::X-config-changed">XklEngine::X-config-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="XklEngine">XklEngine</link> *xklengine,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>xklengine</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="XklEngine-X-new-device" role="signal"><title>The <literal>&quot;X-new-device&quot;</literal> signal</title>
+<indexterm zone="XklEngine-X-new-device"><primary sortas="XklEngine::X-new-device">XklEngine::X-new-device</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="XklEngine">XklEngine</link> *xklengine,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>xklengine</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="XklEngine-X-state-changed" role="signal"><title>The <literal>&quot;X-state-changed&quot;</literal> signal</title>
+<indexterm zone="XklEngine-X-state-changed"><primary sortas="XklEngine::X-state-changed">XklEngine::X-state-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="XklEngine">XklEngine</link>               *xklengine,
+                                                        <link linkend="XklEngineStateChangeType">XklEngineStateChangeType</link> arg1,
+                                                        <link linkend="gint">gint</link>                     arg2,
+                                                        <link linkend="gboolean">gboolean</link>                 arg3,
+                                                        <link linkend="gpointer">gpointer</link>                 user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>xklengine</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="XklEngine-new-toplevel-window" role="signal"><title>The <literal>&quot;new-toplevel-window&quot;</literal> signal</title>
+<indexterm zone="XklEngine-new-toplevel-window"><primary sortas="XklEngine::new-toplevel-window">XklEngine::new-toplevel-window</primary></indexterm><programlisting><link linkend="gint">gint</link>                user_function                      (<link linkend="XklEngine">XklEngine</link> *xklengine,
+                                                        <link linkend="glong">glong</link>      arg1,
+                                                        <link linkend="glong">glong</link>      arg2,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>xklengine</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

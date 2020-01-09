@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libxklavier-xkl-engine-marshal">
+<refmeta>
+<refentrytitle role="top_of_page" id="libxklavier-xkl-engine-marshal.top_of_page">xkl_engine_marshal</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>xkl_engine_marshal</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libxklavier-xkl-engine-marshal.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libxklavier-xkl-engine-marshal.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libxklavier-xkl-engine-marshal.details" role="details">
+<title role="details.title">Details</title>
+
+</refsect1>
+
+
+
+
+</refentry>

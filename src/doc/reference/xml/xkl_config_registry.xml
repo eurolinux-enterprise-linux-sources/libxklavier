@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="XklConfigRegistry">
+<refmeta>
+<refentrytitle role="top_of_page" id="XklConfigRegistry.top_of_page">XklConfigRegistry</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>XklConfigRegistry</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="XklConfigRegistry.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="XklConfigRegistryPrivate">XklConfigRegistryPrivate</link>;
+                    <link linkend="XklConfigRegistry-struct">XklConfigRegistry</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-load">xkl_config_registry_load</link>            (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="gbooleanif-extras-needed">gbooleanif_extras_needed</link> );
+<link linkend="void">void</link>                (<link linkend="ConfigItemProcessFunc">*ConfigItemProcessFunc</link>)            (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *item,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                (<link linkend="TwoConfigItemsProcessFunc">*TwoConfigItemsProcessFunc</link>)        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *item,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *subitem,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-model">xkl_config_registry_foreach_model</link>   (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-layout">xkl_config_registry_foreach_layout</link>  (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-layout-variant">xkl_config_registry_foreach_layout_variant</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *layout_name,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-option-group">xkl_config_registry_foreach_option_group</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-option">xkl_config_registry_foreach_option</link>  (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *option_group_name,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-find-model">xkl_config_registry_find_model</link>      (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-find-layout">xkl_config_registry_find_layout</link>     (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-find-variant">xkl_config_registry_find_variant</link>    (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="char">char</link> *layout_name,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-find-option-group">xkl_config_registry_find_option_group</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-registry-find-option">xkl_config_registry_find_option</link>     (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *option_group_name,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-country">xkl_config_registry_foreach_country</link> (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-country-variant">xkl_config_registry_foreach_country_variant</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *country_code,
+                                                         <link linkend="TwoConfigItemsProcessFuncfunc">TwoConfigItemsProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-language">xkl_config_registry_foreach_language</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="xkl-config-registry-foreach-language-variant">xkl_config_registry_foreach_language_variant</link>
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *language_code,
+                                                         <link linkend="TwoConfigItemsProcessFuncfunc">TwoConfigItemsProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="XklConfigRegistry.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----XklConfigRegistry
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="XklConfigRegistry.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="XklConfigRegistry--engine">engine</link>&quot;                   <link linkend="XklEngine">XklEngine</link>*            : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="XklConfigRegistry.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="XklConfigRegistry.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="XklConfigRegistryPrivate" role="struct">
+<title>XklConfigRegistryPrivate</title>
+<indexterm zone="XklConfigRegistryPrivate"><primary sortas="XklConfigRegistryPrivate">XklConfigRegistryPrivate</primary></indexterm><programlisting>typedef struct _XklConfigRegistryPrivate XklConfigRegistryPrivate;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="XklConfigRegistry-struct" role="struct">
+<title>XklConfigRegistry</title>
+<indexterm zone="XklConfigRegistry-struct"><primary sortas="XklConfigRegistry">XklConfigRegistry</primary></indexterm><programlisting>typedef struct _XklConfigRegistry XklConfigRegistry;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="xkl-config-registry-load" role="function">
+<title>xkl_config_registry_load ()</title>
+<indexterm zone="xkl-config-registry-load"><primary sortas="xkl_config_registry_load">xkl_config_registry_load</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_load            (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="gbooleanif-extras-needed">gbooleanif_extras_needed</link> );</programlisting>
+<para>
+Loads XML configuration registry. The name is taken from X server
+(for XKB/libxkbfile, from the root window property)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="ConfigItemProcessFunc" role="function">
+<title>ConfigItemProcessFunc ()</title>
+<indexterm zone="ConfigItemProcessFunc"><primary sortas="ConfigItemProcessFunc">ConfigItemProcessFunc</primary></indexterm><programlisting><link linkend="void">void</link>                (*ConfigItemProcessFunc)            (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *item,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Callback type used for enumerating keyboard models, layouts, variants, options</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> the item from registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="TwoConfigItemsProcessFunc" role="function">
+<title>TwoConfigItemsProcessFunc ()</title>
+<indexterm zone="TwoConfigItemsProcessFunc"><primary sortas="TwoConfigItemsProcessFunc">TwoConfigItemsProcessFunc</primary></indexterm><programlisting><link linkend="void">void</link>                (*TwoConfigItemsProcessFunc)        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *item,
+                                                         const <link linkend="XklConfigItem">XklConfigItem</link> *subitem,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Callback type used for enumerating layouts/variants for countries/languages</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> the item from registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>subitem</parameter>&#160;:</term>
+<listitem><simpara> the item from registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-model" role="function">
+<title>xkl_config_registry_foreach_model ()</title>
+<indexterm zone="xkl-config-registry-foreach-model"><primary sortas="xkl_config_registry_foreach_model">xkl_config_registry_foreach_model</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_model   (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard models from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-layout" role="function">
+<title>xkl_config_registry_foreach_layout ()</title>
+<indexterm zone="xkl-config-registry-foreach-layout"><primary sortas="xkl_config_registry_foreach_layout">xkl_config_registry_foreach_layout</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_layout  (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard layouts from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-layout-variant" role="function">
+<title>xkl_config_registry_foreach_layout_variant ()</title>
+<indexterm zone="xkl-config-registry-foreach-layout-variant"><primary sortas="xkl_config_registry_foreach_layout_variant">xkl_config_registry_foreach_layout_variant</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_layout_variant
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *layout_name,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard layout variants from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layout_name</parameter>&#160;:</term>
+<listitem><simpara> layout name for which variants will be listed
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-option-group" role="function">
+<title>xkl_config_registry_foreach_option_group ()</title>
+<indexterm zone="xkl-config-registry-foreach-option-group"><primary sortas="xkl_config_registry_foreach_option_group">xkl_config_registry_foreach_option_group</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_option_group
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard option groups from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-option" role="function">
+<title>xkl_config_registry_foreach_option ()</title>
+<indexterm zone="xkl-config-registry-foreach-option"><primary sortas="xkl_config_registry_foreach_option">xkl_config_registry_foreach_option</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_option  (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *option_group_name,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard options from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>option_group_name</parameter>&#160;:</term>
+<listitem><simpara> option group name for which variants 
+will be listed
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-find-model" role="function">
+<title>xkl_config_registry_find_model ()</title>
+<indexterm zone="xkl-config-registry-find-model"><primary sortas="xkl_config_registry_find_model">xkl_config_registry_find_model</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_find_model      (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);</programlisting>
+<para>
+Loads a keyboard model information from the XML configuration registry.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> pointer to a XklConfigItem containing the name of the
+keyboard model. On successfull return, the descriptions are filled.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if appropriate element was found and loaded
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-find-layout" role="function">
+<title>xkl_config_registry_find_layout ()</title>
+<indexterm zone="xkl-config-registry-find-layout"><primary sortas="xkl_config_registry_find_layout">xkl_config_registry_find_layout</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_find_layout     (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);</programlisting>
+<para>
+Loads a keyboard layout information from the XML configuration registry.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> pointer to a XklConfigItem containing the name of the
+keyboard layout. On successfull return, the descriptions are filled.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if appropriate element was found and loaded
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-find-variant" role="function">
+<title>xkl_config_registry_find_variant ()</title>
+<indexterm zone="xkl-config-registry-find-variant"><primary sortas="xkl_config_registry_find_variant">xkl_config_registry_find_variant</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_find_variant    (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="char">char</link> *layout_name,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);</programlisting>
+<para>
+Loads a keyboard layout variant information from the XML configuration 
+registry.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layout_name</parameter>&#160;:</term>
+<listitem><simpara> name of the parent layout
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> pointer to a XklConfigItem containing the name of the
+keyboard layout variant. On successfull return, the descriptions are filled.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if appropriate element was found and loaded
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-find-option-group" role="function">
+<title>xkl_config_registry_find_option_group ()</title>
+<indexterm zone="xkl-config-registry-find-option-group"><primary sortas="xkl_config_registry_find_option_group">xkl_config_registry_find_option_group</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_find_option_group
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);</programlisting>
+<para>
+Loads a keyboard option group information from the XML configuration 
+registry.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> pointer to a XklConfigItem containing the name of the
+keyboard option group. On successfull return, the descriptions are filled.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if appropriate element was found and loaded
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-find-option" role="function">
+<title>xkl_config_registry_find_option ()</title>
+<indexterm zone="xkl-config-registry-find-option"><primary sortas="xkl_config_registry_find_option">xkl_config_registry_find_option</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_registry_find_option     (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *option_group_name,
+                                                         <link linkend="XklConfigItem">XklConfigItem</link> *item);</programlisting>
+<para>
+Loads a keyboard option information from the XML configuration 
+registry.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>option_group_name</parameter>&#160;:</term>
+<listitem><simpara> name of the option group
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item</parameter>&#160;:</term>
+<listitem><simpara> pointer to a XklConfigItem containing the name of the
+keyboard option. On successfull return, the descriptions are filled.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if appropriate element was found and loaded
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-country" role="function">
+<title>xkl_config_registry_foreach_country ()</title>
+<indexterm zone="xkl-config-registry-foreach-country"><primary sortas="xkl_config_registry_foreach_country">xkl_config_registry_foreach_country</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_country (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates countries for which layouts are available,
+from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-country-variant" role="function">
+<title>xkl_config_registry_foreach_country_variant ()</title>
+<indexterm zone="xkl-config-registry-foreach-country-variant"><primary sortas="xkl_config_registry_foreach_country_variant">xkl_config_registry_foreach_country_variant</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_country_variant
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *country_code,
+                                                         <link linkend="TwoConfigItemsProcessFuncfunc">TwoConfigItemsProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard layout variants for the country,
+from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>country_code</parameter>&#160;:</term>
+<listitem><simpara> country ISO code for which variants will be listed
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-language" role="function">
+<title>xkl_config_registry_foreach_language ()</title>
+<indexterm zone="xkl-config-registry-foreach-language"><primary sortas="xkl_config_registry_foreach_language">xkl_config_registry_foreach_language</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_language
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         <link linkend="ConfigItemProcessFuncfunc">ConfigItemProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates languages for which layouts are available,
+from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-registry-foreach-language-variant" role="function">
+<title>xkl_config_registry_foreach_language_variant ()</title>
+<indexterm zone="xkl-config-registry-foreach-language-variant"><primary sortas="xkl_config_registry_foreach_language_variant">xkl_config_registry_foreach_language_variant</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_registry_foreach_language_variant
+                                                        (<link linkend="XklConfigRegistry">XklConfigRegistry</link> *config,
+                                                         const <link linkend="gchar">gchar</link> *language_code,
+                                                         <link linkend="TwoConfigItemsProcessFuncfunc">TwoConfigItemsProcessFuncfunc</link> ,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Enumerates keyboard layout variants for the language,
+from the XML configuration registry</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> the config registry
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>language_code</parameter>&#160;:</term>
+<listitem><simpara> language ISO code for which variants will be listed
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param3</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> anything which can be stored into the pointer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="XklConfigRegistry.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="XklConfigRegistry--engine" role="property"><title>The <literal>&quot;engine&quot;</literal> property</title>
+<indexterm zone="XklConfigRegistry--engine"><primary sortas="XklConfigRegistry:engine">XklConfigRegistry:engine</primary></indexterm><programlisting>  &quot;engine&quot;                   <link linkend="XklEngine">XklEngine</link>*            : Read / Write / Construct Only</programlisting>
+<para>XklEngine.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

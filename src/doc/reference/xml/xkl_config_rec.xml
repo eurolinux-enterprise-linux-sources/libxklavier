@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="XklConfigRec">
+<refmeta>
+<refentrytitle role="top_of_page" id="XklConfigRec.top_of_page">XklConfigRec</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>XklConfigRec</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="XklConfigRec.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="XklConfigRec-struct">XklConfigRec</link>;
+<link linkend="XklConfigRec">XklConfigRec</link> *      <link linkend="xkl-config-rec-new">xkl_config_rec_new</link>                  (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-activate">xkl_config_rec_activate</link>             (const <link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-get-from-server">xkl_config_rec_get_from_server</link>      (<link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-get-from-backup">xkl_config_rec_get_from_backup</link>      (<link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-write-to-file">xkl_config_rec_write_to_file</link>        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         const <link linkend="gchar">gchar</link> *file_name,
+                                                         const <link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         const <link linkend="gbooleanbinary">gbooleanbinary</link> );
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-get-from-root-window-property">xkl_config_rec_get_from_root_window_property</link>
+                                                        (<link linkend="XklConfigRec">XklConfigRec</link> *config_out,
+                                                         <link linkend="Atomrules-atom-name">Atomrules_atom_name</link> ,
+                                                         <link linkend="gchar">gchar</link> **rules_file_out,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-set-to-root-window-property">xkl_config_rec_set_to_root_window_property</link>
+                                                        (<link linkend="constXklConfigRec">constXklConfigRec</link> *config,
+                                                         <link linkend="Atomrules-atom-name">Atomrules_atom_name</link> ,
+                                                         <link linkend="gchar">gchar</link> *rules_file,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-engine-backup-names-prop">xkl_engine_backup_names_prop</link>        (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-restore-names-prop">xkl_restore_names_prop</link>              (<link linkend="XklEngine">XklEngine</link> *engine);
+<link linkend="void">void</link>                <link linkend="xkl-config-rec-reset">xkl_config_rec_reset</link>                (<link linkend="XklConfigRec">XklConfigRec</link> *data);
+<link linkend="gboolean">gboolean</link>            <link linkend="xkl-config-rec-equals">xkl_config_rec_equals</link>               (<link linkend="XklConfigRec">XklConfigRec</link> *data1,
+                                                         <link linkend="XklConfigRec">XklConfigRec</link> *data2);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="XklConfigRec.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----XklConfigRec
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="XklConfigRec.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="XklConfigRec.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="XklConfigRec-struct" role="struct">
+<title>XklConfigRec</title>
+<indexterm zone="XklConfigRec-struct"><primary sortas="XklConfigRec">XklConfigRec</primary></indexterm><programlisting>typedef struct _XklConfigRec XklConfigRec;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="xkl-config-rec-new" role="function">
+<title>xkl_config_rec_new ()</title>
+<indexterm zone="xkl-config-rec-new"><primary sortas="xkl_config_rec_new">xkl_config_rec_new</primary></indexterm><programlisting><link linkend="XklConfigRec">XklConfigRec</link> *      xkl_config_rec_new                  (void);</programlisting>
+<para>
+Create new XklConfigRec</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> new instance
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-activate" role="function">
+<title>xkl_config_rec_activate ()</title>
+<indexterm zone="xkl-config-rec-activate"><primary sortas="xkl_config_rec_activate">xkl_config_rec_activate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_activate             (const <link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Activates some XKB configuration
+description. Can be NULL</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> valid XKB configuration
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-get-from-server" role="function">
+<title>xkl_config_rec_get_from_server ()</title>
+<indexterm zone="xkl-config-rec-get-from-server"><primary sortas="xkl_config_rec_get_from_server">xkl_config_rec_get_from_server</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_get_from_server      (<link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Loads the current XKB configuration (from X server)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> buffer for XKB configuration
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-get-from-backup" role="function">
+<title>xkl_config_rec_get_from_backup ()</title>
+<indexterm zone="xkl-config-rec-get-from-backup"><primary sortas="xkl_config_rec_get_from_backup">xkl_config_rec_get_from_backup</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_get_from_backup      (<link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Loads the current XKB configuration (from backup)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> buffer for XKB configuration
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-write-to-file" role="function">
+<title>xkl_config_rec_write_to_file ()</title>
+<indexterm zone="xkl-config-rec-write-to-file"><primary sortas="xkl_config_rec_write_to_file">xkl_config_rec_write_to_file</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_write_to_file        (<link linkend="XklEngine">XklEngine</link> *engine,
+                                                         const <link linkend="gchar">gchar</link> *file_name,
+                                                         const <link linkend="XklConfigRec">XklConfigRec</link> *data,
+                                                         const <link linkend="gbooleanbinary">gbooleanbinary</link> );</programlisting>
+<para>
+Writes some XKB configuration into XKM/XKB/... file</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file_name</parameter>&#160;:</term>
+<listitem><simpara> name of the file to create
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> valid XKB configuration
+description. Can be NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param4</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-get-from-root-window-property" role="function">
+<title>xkl_config_rec_get_from_root_window_property ()</title>
+<indexterm zone="xkl-config-rec-get-from-root-window-property"><primary sortas="xkl_config_rec_get_from_root_window_property">xkl_config_rec_get_from_root_window_property</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_get_from_root_window_property
+                                                        (<link linkend="XklConfigRec">XklConfigRec</link> *config_out,
+                                                         <link linkend="Atomrules-atom-name">Atomrules_atom_name</link> ,
+                                                         <link linkend="gchar">gchar</link> **rules_file_out,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Gets the XKB configuration from any root window property</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config_out</parameter>&#160;:</term>
+<listitem><simpara> buffer to hold the result
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rules_file_out</parameter>&#160;:</term>
+<listitem><simpara> pointer to hold the file name
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-set-to-root-window-property" role="function">
+<title>xkl_config_rec_set_to_root_window_property ()</title>
+<indexterm zone="xkl-config-rec-set-to-root-window-property"><primary sortas="xkl_config_rec_set_to_root_window_property">xkl_config_rec_set_to_root_window_property</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_set_to_root_window_property
+                                                        (<link linkend="constXklConfigRec">constXklConfigRec</link> *config,
+                                                         <link linkend="Atomrules-atom-name">Atomrules_atom_name</link> ,
+                                                         <link linkend="gchar">gchar</link> *rules_file,
+                                                         <link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Saves the XKB configuration into any root window property</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>config</parameter>&#160;:</term>
+<listitem><simpara> configuration to save 
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>Param2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rules_file</parameter>&#160;:</term>
+<listitem><simpara> rules file name
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-engine-backup-names-prop" role="function">
+<title>xkl_engine_backup_names_prop ()</title>
+<indexterm zone="xkl-engine-backup-names-prop"><primary sortas="xkl_engine_backup_names_prop">xkl_engine_backup_names_prop</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_engine_backup_names_prop        (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Backups current XKB configuration into some property - 
+if this property is not defined yet.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-restore-names-prop" role="function">
+<title>xkl_restore_names_prop ()</title>
+<indexterm zone="xkl-restore-names-prop"><primary sortas="xkl_restore_names_prop">xkl_restore_names_prop</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_restore_names_prop              (<link linkend="XklEngine">XklEngine</link> *engine);</programlisting>
+<para>
+Restores XKB from the property saved by xkl_backup_names_prop</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>engine</parameter>&#160;:</term>
+<listitem><simpara> the engine
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE on success
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-reset" role="function">
+<title>xkl_config_rec_reset ()</title>
+<indexterm zone="xkl-config-rec-reset"><primary sortas="xkl_config_rec_reset">xkl_config_rec_reset</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_config_rec_reset                (<link linkend="XklConfigRec">XklConfigRec</link> *data);</programlisting>
+<para>
+Resets the record (equal to Destroy and Init)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara> record to reset
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-config-rec-equals" role="function">
+<title>xkl_config_rec_equals ()</title>
+<indexterm zone="xkl-config-rec-equals"><primary sortas="xkl_config_rec_equals">xkl_config_rec_equals</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            xkl_config_rec_equals               (<link linkend="XklConfigRec">XklConfigRec</link> *data1,
+                                                         <link linkend="XklConfigRec">XklConfigRec</link> *data2);</programlisting>
+<para>
+Compares two records</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data1</parameter>&#160;:</term>
+<listitem><simpara> record to compare
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data2</parameter>&#160;:</term>
+<listitem><simpara> another record
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if records are same
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

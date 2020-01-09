@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Libxklavier Reference Manual" link="index.html" author="" name="libxklavier" version="2" language="c">
+  <chapters>
+    <sub name="Libxklavier Objects" link="ch01.html">
+      <sub name="XklEngine" link="XklEngine.html"/>
+      <sub name="XklConfigItem" link="XklConfigItem.html"/>
+      <sub name="XklConfigRec" link="XklConfigRec.html"/>
+      <sub name="XklConfigRegistry" link="XklConfigRegistry.html"/>
+    </sub>
+    <sub name="Libxklavier Utilities" link="ch02.html">
+      <sub name="xklavier" link="libxklavier-xklavier.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="XklEnginePrivate" link="XklEngine.html#XklEnginePrivate"/>
+    <keyword type="enum" name="enum XklEngineStateChange" link="XklEngine.html#XklEngineStateChange"/>
+    <keyword type="enum" name="enum XklEngineFeatures" link="XklEngine.html#XklEngineFeatures"/>
+    <keyword type="struct" name="XklState" link="XklEngine.html#XklState"/>
+    <keyword type="struct" name="XklEngine" link="XklEngine.html#XklEngine-struct"/>
+    <keyword type="function" name="xkl_engine_get_instance ()" link="XklEngine.html#xkl-engine-get-instance"/>
+    <keyword type="function" name="xkl_engine_get_backend_name ()" link="XklEngine.html#xkl-engine-get-backend-name"/>
+    <keyword type="function" name="xkl_engine_get_features ()" link="XklEngine.html#xkl-engine-get-features"/>
+    <keyword type="function" name="xkl_engine_get_max_num_groups ()" link="XklEngine.html#xkl-engine-get-max-num-groups"/>
+    <keyword type="enum" name="enum XklEngineListenModes" link="XklEngine.html#XklEngineListenModes"/>
+    <keyword type="function" name="xkl_engine_start_listen ()" link="XklEngine.html#xkl-engine-start-listen"/>
+    <keyword type="function" name="xkl_engine_stop_listen ()" link="XklEngine.html#xkl-engine-stop-listen"/>
+    <keyword type="function" name="xkl_engine_pause_listen ()" link="XklEngine.html#xkl-engine-pause-listen"/>
+    <keyword type="function" name="xkl_engine_resume_listen ()" link="XklEngine.html#xkl-engine-resume-listen"/>
+    <keyword type="function" name="xkl_engine_grab_key ()" link="XklEngine.html#xkl-engine-grab-key"/>
+    <keyword type="function" name="xkl_engine_ungrab_key ()" link="XklEngine.html#xkl-engine-ungrab-key"/>
+    <keyword type="function" name="xkl_engine_filter_events ()" link="XklEngine.html#xkl-engine-filter-events"/>
+    <keyword type="function" name="xkl_engine_allow_one_switch_to_secondary_group ()" link="XklEngine.html#xkl-engine-allow-one-switch-to-secondary-group"/>
+    <keyword type="function" name="xkl_engine_get_current_window ()" link="XklEngine.html#xkl-engine-get-current-window"/>
+    <keyword type="function" name="xkl_engine_get_current_state ()" link="XklEngine.html#xkl-engine-get-current-state"/>
+    <keyword type="function" name="xkl_engine_get_window_title ()" link="XklEngine.html#xkl-engine-get-window-title"/>
+    <keyword type="function" name="xkl_engine_get_state ()" link="XklEngine.html#xkl-engine-get-state"/>
+    <keyword type="function" name="xkl_engine_delete_state ()" link="XklEngine.html#xkl-engine-delete-state"/>
+    <keyword type="function" name="xkl_engine_save_state ()" link="XklEngine.html#xkl-engine-save-state"/>
+    <keyword type="function" name="xkl_engine_set_window_transparent ()" link="XklEngine.html#xkl-engine-set-window-transparent"/>
+    <keyword type="function" name="xkl_engine_is_window_transparent ()" link="XklEngine.html#xkl-engine-is-window-transparent"/>
+    <keyword type="function" name="xkl_engine_is_window_from_same_toplevel_window ()" link="XklEngine.html#xkl-engine-is-window-from-same-toplevel-window"/>
+    <keyword type="function" name="xkl_engine_get_num_groups ()" link="XklEngine.html#xkl-engine-get-num-groups"/>
+    <keyword type="function" name="xkl_engine_get_groups_names ()" link="XklEngine.html#xkl-engine-get-groups-names"/>
+    <keyword type="function" name="xkl_engine_get_indicators_names ()" link="XklEngine.html#xkl-engine-get-indicators-names"/>
+    <keyword type="function" name="xkl_engine_get_next_group ()" link="XklEngine.html#xkl-engine-get-next-group"/>
+    <keyword type="function" name="xkl_engine_get_prev_group ()" link="XklEngine.html#xkl-engine-get-prev-group"/>
+    <keyword type="function" name="xkl_engine_get_current_window_group ()" link="XklEngine.html#xkl-engine-get-current-window-group"/>
+    <keyword type="function" name="xkl_engine_lock_group ()" link="XklEngine.html#xkl-engine-lock-group"/>
+    <keyword type="function" name="xkl_engine_set_group_per_toplevel_window ()" link="XklEngine.html#xkl-engine-set-group-per-toplevel-window"/>
+    <keyword type="function" name="xkl_engine_is_group_per_toplevel_window ()" link="XklEngine.html#xkl-engine-is-group-per-toplevel-window"/>
+    <keyword type="function" name="xkl_engine_set_indicators_handling ()" link="XklEngine.html#xkl-engine-set-indicators-handling"/>
+    <keyword type="function" name="xkl_engine_get_indicators_handling ()" link="XklEngine.html#xkl-engine-get-indicators-handling"/>
+    <keyword type="function" name="xkl_engine_set_secondary_groups_mask ()" link="XklEngine.html#xkl-engine-set-secondary-groups-mask"/>
+    <keyword type="function" name="xkl_engine_get_secondary_groups_mask ()" link="XklEngine.html#xkl-engine-get-secondary-groups-mask"/>
+    <keyword type="function" name="xkl_engine_set_default_group ()" link="XklEngine.html#xkl-engine-set-default-group"/>
+    <keyword type="function" name="xkl_engine_get_default_group ()" link="XklEngine.html#xkl-engine-get-default-group"/>
+    <keyword type="property" name="The &quot;backendName&quot; property" link="XklEngine.html#XklEngine--backendName"/>
+    <keyword type="property" name="The &quot;default-group&quot; property" link="XklEngine.html#XklEngine--default-group"/>
+    <keyword type="property" name="The &quot;display&quot; property" link="XklEngine.html#XklEngine--display"/>
+    <keyword type="property" name="The &quot;indicators-handling&quot; property" link="XklEngine.html#XklEngine--indicators-handling"/>
+    <keyword type="property" name="The &quot;max-num-groups&quot; property" link="XklEngine.html#XklEngine--max-num-groups"/>
+    <keyword type="property" name="The &quot;num-groups&quot; property" link="XklEngine.html#XklEngine--num-groups"/>
+    <keyword type="property" name="The &quot;secondary-groups-mask&quot; property" link="XklEngine.html#XklEngine--secondary-groups-mask"/>
+    <keyword type="signal" name="The &quot;X-config-changed&quot; signal" link="XklEngine.html#XklEngine-X-config-changed"/>
+    <keyword type="signal" name="The &quot;X-new-device&quot; signal" link="XklEngine.html#XklEngine-X-new-device"/>
+    <keyword type="signal" name="The &quot;X-state-changed&quot; signal" link="XklEngine.html#XklEngine-X-state-changed"/>
+    <keyword type="signal" name="The &quot;new-toplevel-window&quot; signal" link="XklEngine.html#XklEngine-new-toplevel-window"/>
+    <keyword type="macro" name="XKL_MAX_CI_NAME_LENGTH" link="XklConfigItem.html#XKL-MAX-CI-NAME-LENGTH--CAPS"/>
+    <keyword type="macro" name="XKL_MAX_CI_SHORT_DESC_LENGTH" link="XklConfigItem.html#XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS"/>
+    <keyword type="macro" name="XKL_MAX_CI_DESC_LENGTH" link="XklConfigItem.html#XKL-MAX-CI-DESC-LENGTH--CAPS"/>
+    <keyword type="macro" name="XCI_PROP_ALLOW_MULTIPLE_SELECTION" link="XklConfigItem.html#XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS"/>
+    <keyword type="macro" name="XCI_PROP_VENDOR" link="XklConfigItem.html#XCI-PROP-VENDOR--CAPS"/>
+    <keyword type="macro" name="XCI_PROP_COUNTRY_LIST" link="XklConfigItem.html#XCI-PROP-COUNTRY-LIST--CAPS"/>
+    <keyword type="macro" name="XCI_PROP_LANGUAGE_LIST" link="XklConfigItem.html#XCI-PROP-LANGUAGE-LIST--CAPS"/>
+    <keyword type="struct" name="XklConfigItem" link="XklConfigItem.html#XklConfigItem-struct"/>
+    <keyword type="function" name="xkl_config_item_new ()" link="XklConfigItem.html#xkl-config-item-new"/>
+    <keyword type="struct" name="XklConfigRec" link="XklConfigRec.html#XklConfigRec-struct"/>
+    <keyword type="function" name="xkl_config_rec_new ()" link="XklConfigRec.html#xkl-config-rec-new"/>
+    <keyword type="function" name="xkl_config_rec_activate ()" link="XklConfigRec.html#xkl-config-rec-activate"/>
+    <keyword type="function" name="xkl_config_rec_get_from_server ()" link="XklConfigRec.html#xkl-config-rec-get-from-server"/>
+    <keyword type="function" name="xkl_config_rec_get_from_backup ()" link="XklConfigRec.html#xkl-config-rec-get-from-backup"/>
+    <keyword type="function" name="xkl_config_rec_write_to_file ()" link="XklConfigRec.html#xkl-config-rec-write-to-file"/>
+    <keyword type="function" name="xkl_config_rec_get_from_root_window_property ()" link="XklConfigRec.html#xkl-config-rec-get-from-root-window-property"/>
+    <keyword type="function" name="xkl_config_rec_set_to_root_window_property ()" link="XklConfigRec.html#xkl-config-rec-set-to-root-window-property"/>
+    <keyword type="function" name="xkl_engine_backup_names_prop ()" link="XklConfigRec.html#xkl-engine-backup-names-prop"/>
+    <keyword type="function" name="xkl_restore_names_prop ()" link="XklConfigRec.html#xkl-restore-names-prop"/>
+    <keyword type="function" name="xkl_config_rec_reset ()" link="XklConfigRec.html#xkl-config-rec-reset"/>
+    <keyword type="function" name="xkl_config_rec_equals ()" link="XklConfigRec.html#xkl-config-rec-equals"/>
+    <keyword type="struct" name="XklConfigRegistryPrivate" link="XklConfigRegistry.html#XklConfigRegistryPrivate"/>
+    <keyword type="struct" name="XklConfigRegistry" link="XklConfigRegistry.html#XklConfigRegistry-struct"/>
+    <keyword type="function" name="xkl_config_registry_load ()" link="XklConfigRegistry.html#xkl-config-registry-load"/>
+    <keyword type="function" name="ConfigItemProcessFunc ()" link="XklConfigRegistry.html#ConfigItemProcessFunc"/>
+    <keyword type="function" name="TwoConfigItemsProcessFunc ()" link="XklConfigRegistry.html#TwoConfigItemsProcessFunc"/>
+    <keyword type="function" name="xkl_config_registry_foreach_model ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-model"/>
+    <keyword type="function" name="xkl_config_registry_foreach_layout ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-layout"/>
+    <keyword type="function" name="xkl_config_registry_foreach_layout_variant ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-layout-variant"/>
+    <keyword type="function" name="xkl_config_registry_foreach_option_group ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-option-group"/>
+    <keyword type="function" name="xkl_config_registry_foreach_option ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-option"/>
+    <keyword type="function" name="xkl_config_registry_find_model ()" link="XklConfigRegistry.html#xkl-config-registry-find-model"/>
+    <keyword type="function" name="xkl_config_registry_find_layout ()" link="XklConfigRegistry.html#xkl-config-registry-find-layout"/>
+    <keyword type="function" name="xkl_config_registry_find_variant ()" link="XklConfigRegistry.html#xkl-config-registry-find-variant"/>
+    <keyword type="function" name="xkl_config_registry_find_option_group ()" link="XklConfigRegistry.html#xkl-config-registry-find-option-group"/>
+    <keyword type="function" name="xkl_config_registry_find_option ()" link="XklConfigRegistry.html#xkl-config-registry-find-option"/>
+    <keyword type="function" name="xkl_config_registry_foreach_country ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-country"/>
+    <keyword type="function" name="xkl_config_registry_foreach_country_variant ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-country-variant"/>
+    <keyword type="function" name="xkl_config_registry_foreach_language ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-language"/>
+    <keyword type="function" name="xkl_config_registry_foreach_language_variant ()" link="XklConfigRegistry.html#xkl-config-registry-foreach-language-variant"/>
+    <keyword type="property" name="The &quot;engine&quot; property" link="XklConfigRegistry.html#XklConfigRegistry--engine"/>
+    <keyword type="function" name="xkl_get_last_error ()" link="libxklavier-xklavier.html#xkl-get-last-error"/>
+    <keyword type="function" name="XklLogAppender ()" link="libxklavier-xklavier.html#XklLogAppender"/>
+    <keyword type="function" name="xkl_default_log_appender ()" link="libxklavier-xklavier.html#xkl-default-log-appender"/>
+    <keyword type="function" name="xkl_set_log_appender ()" link="libxklavier-xklavier.html#xkl-set-log-appender"/>
+    <keyword type="function" name="xkl_set_debug_level ()" link="libxklavier-xklavier.html#xkl-set-debug-level"/>
+    <keyword type="macro" name="xkl_debug()" link="libxklavier-xklavier.html#xkl-debug"/>
+  </functions>
+</book>

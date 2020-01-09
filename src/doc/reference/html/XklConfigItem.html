@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XklConfigItem</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Libxklavier Reference Manual">
+<link rel="up" href="ch01.html" title="Libxklavier Objects">
+<link rel="prev" href="XklEngine.html" title="XklEngine">
+<link rel="next" href="XklConfigRec.html" title="XklConfigRec">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Libxklavier Objects">
+<link rel="chapter" href="ch02.html" title="Libxklavier Utilities">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="XklEngine.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxklavier Reference Manual</th>
+<td><a accesskey="n" href="XklConfigRec.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#XklConfigItem.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#XklConfigItem.description" class="shortcut">Description</a>
+                 | 
+                <a href="#XklConfigItem.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="XklConfigItem"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XklConfigItem.top_of_page"></a>XklConfigItem</span></h2>
+<p>XklConfigItem</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="XklConfigItem.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#define             <a class="link" href="XklConfigItem.html#XKL-MAX-CI-NAME-LENGTH--CAPS" title="XKL_MAX_CI_NAME_LENGTH">XKL_MAX_CI_NAME_LENGTH</a>
+#define             <a class="link" href="XklConfigItem.html#XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS" title="XKL_MAX_CI_SHORT_DESC_LENGTH">XKL_MAX_CI_SHORT_DESC_LENGTH</a>
+#define             <a class="link" href="XklConfigItem.html#XKL-MAX-CI-DESC-LENGTH--CAPS" title="XKL_MAX_CI_DESC_LENGTH">XKL_MAX_CI_DESC_LENGTH</a>
+#define             <a class="link" href="XklConfigItem.html#XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS" title="XCI_PROP_ALLOW_MULTIPLE_SELECTION">XCI_PROP_ALLOW_MULTIPLE_SELECTION</a>
+#define             <a class="link" href="XklConfigItem.html#XCI-PROP-VENDOR--CAPS" title="XCI_PROP_VENDOR">XCI_PROP_VENDOR</a>
+#define             <a class="link" href="XklConfigItem.html#XCI-PROP-COUNTRY-LIST--CAPS" title="XCI_PROP_COUNTRY_LIST">XCI_PROP_COUNTRY_LIST</a>
+#define             <a class="link" href="XklConfigItem.html#XCI-PROP-LANGUAGE-LIST--CAPS" title="XCI_PROP_LANGUAGE_LIST">XCI_PROP_LANGUAGE_LIST</a>
+                    <a class="link" href="XklConfigItem.html#XklConfigItem-struct" title="XklConfigItem">XklConfigItem</a>;
+<a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *     <a class="link" href="XklConfigItem.html#xkl-config-item-new" title="xkl_config_item_new ()">xkl_config_item_new</a>                 (void);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigItem.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----XklConfigItem
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigItem.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigItem.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="XKL-MAX-CI-NAME-LENGTH--CAPS"></a><h3>XKL_MAX_CI_NAME_LENGTH</h3>
+<pre class="programlisting">#define XKL_MAX_CI_NAME_LENGTH 32
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS"></a><h3>XKL_MAX_CI_SHORT_DESC_LENGTH</h3>
+<pre class="programlisting">#define XKL_MAX_CI_SHORT_DESC_LENGTH 10
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XKL-MAX-CI-DESC-LENGTH--CAPS"></a><h3>XKL_MAX_CI_DESC_LENGTH</h3>
+<pre class="programlisting">#define XKL_MAX_CI_DESC_LENGTH 192
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS"></a><h3>XCI_PROP_ALLOW_MULTIPLE_SELECTION</h3>
+<pre class="programlisting">#define XCI_PROP_ALLOW_MULTIPLE_SELECTION "allowMultipleSelection"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XCI-PROP-VENDOR--CAPS"></a><h3>XCI_PROP_VENDOR</h3>
+<pre class="programlisting">#define XCI_PROP_VENDOR "vendor"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XCI-PROP-COUNTRY-LIST--CAPS"></a><h3>XCI_PROP_COUNTRY_LIST</h3>
+<pre class="programlisting">#define XCI_PROP_COUNTRY_LIST "countryList"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XCI-PROP-LANGUAGE-LIST--CAPS"></a><h3>XCI_PROP_LANGUAGE_LIST</h3>
+<pre class="programlisting">#define XCI_PROP_LANGUAGE_LIST "languageList"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklConfigItem-struct"></a><h3>XklConfigItem</h3>
+<pre class="programlisting">typedef struct _XklConfigItem XklConfigItem;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-item-new"></a><h3>xkl_config_item_new ()</h3>
+<pre class="programlisting"><a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *     xkl_config_item_new                 (void);</pre>
+<p>
+Create new XklConfigItem</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> new instance
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

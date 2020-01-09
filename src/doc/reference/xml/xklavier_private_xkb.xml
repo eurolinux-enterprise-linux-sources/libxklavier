@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libxklavier-xklavier-private-xkb">
+<refmeta>
+<refentrytitle role="top_of_page" id="libxklavier-xklavier-private-xkb.top_of_page">xklavier_private_xkb</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>xklavier_private_xkb</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libxklavier-xklavier-private-xkb.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libxklavier-xklavier-private-xkb.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libxklavier-xklavier-private-xkb.details" role="details">
+<title role="details.title">Details</title>
+
+</refsect1>
+
+
+
+
+</refentry>

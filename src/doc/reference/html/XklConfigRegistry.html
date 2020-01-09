@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XklConfigRegistry</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Libxklavier Reference Manual">
+<link rel="up" href="ch01.html" title="Libxklavier Objects">
+<link rel="prev" href="XklConfigRec.html" title="XklConfigRec">
+<link rel="next" href="ch02.html" title="Libxklavier Utilities">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Libxklavier Objects">
+<link rel="chapter" href="ch02.html" title="Libxklavier Utilities">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="XklConfigRec.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxklavier Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#XklConfigRegistry.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#XklConfigRegistry.description" class="shortcut">Description</a>
+                 | 
+                <a href="#XklConfigRegistry.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#XklConfigRegistry.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="XklConfigRegistry"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XklConfigRegistry.top_of_page"></a>XklConfigRegistry</span></h2>
+<p>XklConfigRegistry</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="XklConfigRegistry.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="XklConfigRegistry.html#XklConfigRegistryPrivate" title="XklConfigRegistryPrivate">XklConfigRegistryPrivate</a>;
+                    <a class="link" href="XklConfigRegistry.html#XklConfigRegistry-struct" title="XklConfigRegistry">XklConfigRegistry</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-load" title="xkl_config_registry_load ()">xkl_config_registry_load</a>            (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         gbooleanif_extras_needed );
+void                (<a class="link" href="XklConfigRegistry.html#ConfigItemProcessFunc" title="ConfigItemProcessFunc ()">*ConfigItemProcessFunc</a>)            (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                (<a class="link" href="XklConfigRegistry.html#TwoConfigItemsProcessFunc" title="TwoConfigItemsProcessFunc ()">*TwoConfigItemsProcessFunc</a>)        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *subitem,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-model" title="xkl_config_registry_foreach_model ()">xkl_config_registry_foreach_model</a>   (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-layout" title="xkl_config_registry_foreach_layout ()">xkl_config_registry_foreach_layout</a>  (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-layout-variant" title="xkl_config_registry_foreach_layout_variant ()">xkl_config_registry_foreach_layout_variant</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *layout_name,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-option-group" title="xkl_config_registry_foreach_option_group ()">xkl_config_registry_foreach_option_group</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-option" title="xkl_config_registry_foreach_option ()">xkl_config_registry_foreach_option</a>  (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *option_group_name,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-find-model" title="xkl_config_registry_find_model ()">xkl_config_registry_find_model</a>      (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-find-layout" title="xkl_config_registry_find_layout ()">xkl_config_registry_find_layout</a>     (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-find-variant" title="xkl_config_registry_find_variant ()">xkl_config_registry_find_variant</a>    (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const char *layout_name,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-find-option-group" title="xkl_config_registry_find_option_group ()">xkl_config_registry_find_option_group</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklConfigRegistry.html#xkl-config-registry-find-option" title="xkl_config_registry_find_option ()">xkl_config_registry_find_option</a>     (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *option_group_name,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-country" title="xkl_config_registry_foreach_country ()">xkl_config_registry_foreach_country</a> (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-country-variant" title="xkl_config_registry_foreach_country_variant ()">xkl_config_registry_foreach_country_variant</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *country_code,
+                                                         TwoConfigItemsProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-language" title="xkl_config_registry_foreach_language ()">xkl_config_registry_foreach_language</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="XklConfigRegistry.html#xkl-config-registry-foreach-language-variant" title="xkl_config_registry_foreach_language_variant ()">xkl_config_registry_foreach_language_variant</a>
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *language_code,
+                                                         TwoConfigItemsProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRegistry.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----XklConfigRegistry
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRegistry.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="XklConfigRegistry.html#XklConfigRegistry--engine" title='The "engine" property'>engine</a>"                   <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a>*            : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRegistry.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRegistry.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklConfigRegistryPrivate"></a><h3>XklConfigRegistryPrivate</h3>
+<pre class="programlisting">typedef struct _XklConfigRegistryPrivate XklConfigRegistryPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklConfigRegistry-struct"></a><h3>XklConfigRegistry</h3>
+<pre class="programlisting">typedef struct _XklConfigRegistry XklConfigRegistry;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-load"></a><h3>xkl_config_registry_load ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_load            (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         gbooleanif_extras_needed );</pre>
+<p>
+Loads XML configuration registry. The name is taken from X server
+(for XKB/libxkbfile, from the root window property)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="ConfigItemProcessFunc"></a><h3>ConfigItemProcessFunc ()</h3>
+<pre class="programlisting">void                (*ConfigItemProcessFunc)            (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Callback type used for enumerating keyboard models, layouts, variants, options</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> the item from registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="TwoConfigItemsProcessFunc"></a><h3>TwoConfigItemsProcessFunc ()</h3>
+<pre class="programlisting">void                (*TwoConfigItemsProcessFunc)        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item,
+                                                         const <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *subitem,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Callback type used for enumerating layouts/variants for countries/languages</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> the item from registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>subitem</code></em> :</span></p></td>
+<td> the item from registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-model"></a><h3>xkl_config_registry_foreach_model ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_model   (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard models from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-layout"></a><h3>xkl_config_registry_foreach_layout ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_layout  (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard layouts from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-layout-variant"></a><h3>xkl_config_registry_foreach_layout_variant ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_layout_variant
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *layout_name,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard layout variants from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>layout_name</code></em> :</span></p></td>
+<td> layout name for which variants will be listed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-option-group"></a><h3>xkl_config_registry_foreach_option_group ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_option_group
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard option groups from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-option"></a><h3>xkl_config_registry_foreach_option ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_option  (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *option_group_name,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard options from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>option_group_name</code></em> :</span></p></td>
+<td> option group name for which variants 
+will be listed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-find-model"></a><h3>xkl_config_registry_find_model ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_find_model      (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);</pre>
+<p>
+Loads a keyboard model information from the XML configuration registry.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> pointer to a XklConfigItem containing the name of the
+keyboard model. On successfull return, the descriptions are filled.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if appropriate element was found and loaded
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-find-layout"></a><h3>xkl_config_registry_find_layout ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_find_layout     (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);</pre>
+<p>
+Loads a keyboard layout information from the XML configuration registry.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> pointer to a XklConfigItem containing the name of the
+keyboard layout. On successfull return, the descriptions are filled.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if appropriate element was found and loaded
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-find-variant"></a><h3>xkl_config_registry_find_variant ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_find_variant    (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const char *layout_name,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);</pre>
+<p>
+Loads a keyboard layout variant information from the XML configuration 
+registry.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>layout_name</code></em> :</span></p></td>
+<td> name of the parent layout
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> pointer to a XklConfigItem containing the name of the
+keyboard layout variant. On successfull return, the descriptions are filled.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if appropriate element was found and loaded
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-find-option-group"></a><h3>xkl_config_registry_find_option_group ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_find_option_group
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);</pre>
+<p>
+Loads a keyboard option group information from the XML configuration 
+registry.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> pointer to a XklConfigItem containing the name of the
+keyboard option group. On successfull return, the descriptions are filled.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if appropriate element was found and loaded
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-find-option"></a><h3>xkl_config_registry_find_option ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_config_registry_find_option     (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *option_group_name,
+                                                         <a class="link" href="XklConfigItem.html" title="XklConfigItem">XklConfigItem</a> *item);</pre>
+<p>
+Loads a keyboard option information from the XML configuration 
+registry.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>option_group_name</code></em> :</span></p></td>
+<td> name of the option group
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td> pointer to a XklConfigItem containing the name of the
+keyboard option. On successfull return, the descriptions are filled.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if appropriate element was found and loaded
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-country"></a><h3>xkl_config_registry_foreach_country ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_country (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates countries for which layouts are available,
+from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-country-variant"></a><h3>xkl_config_registry_foreach_country_variant ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_country_variant
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *country_code,
+                                                         TwoConfigItemsProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard layout variants for the country,
+from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>country_code</code></em> :</span></p></td>
+<td> country ISO code for which variants will be listed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-language"></a><h3>xkl_config_registry_foreach_language ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_language
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         ConfigItemProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates languages for which layouts are available,
+from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-config-registry-foreach-language-variant"></a><h3>xkl_config_registry_foreach_language_variant ()</h3>
+<pre class="programlisting">void                xkl_config_registry_foreach_language_variant
+                                                        (<a class="link" href="XklConfigRegistry.html" title="XklConfigRegistry">XklConfigRegistry</a> *config,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *language_code,
+                                                         TwoConfigItemsProcessFuncfunc ,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Enumerates keyboard layout variants for the language,
+from the XML configuration registry</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td> the config registry
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>language_code</code></em> :</span></p></td>
+<td> language ISO code for which variants will be listed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> anything which can be stored into the pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklConfigRegistry.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklConfigRegistry--engine"></a><h3>The <code class="literal">"engine"</code> property</h3>
+<pre class="programlisting">  "engine"                   <a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a>*            : Read / Write / Construct Only</pre>
+<p>XklEngine.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="ConfigItemProcessFunc"><link linkend="ConfigItemProcessFunc">ConfigItemProcessFunc</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>T</title>
+<indexentry><primaryie linkends="TwoConfigItemsProcessFunc"><link linkend="TwoConfigItemsProcessFunc">TwoConfigItemsProcessFunc</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>X</title>
+<indexentry><primaryie linkends="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS"><link linkend="XCI-PROP-ALLOW-MULTIPLE-SELECTION--CAPS">XCI_PROP_ALLOW_MULTIPLE_SELECTION</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XCI-PROP-COUNTRY-LIST--CAPS"><link linkend="XCI-PROP-COUNTRY-LIST--CAPS">XCI_PROP_COUNTRY_LIST</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XCI-PROP-LANGUAGE-LIST--CAPS"><link linkend="XCI-PROP-LANGUAGE-LIST--CAPS">XCI_PROP_LANGUAGE_LIST</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XCI-PROP-VENDOR--CAPS"><link linkend="XCI-PROP-VENDOR--CAPS">XCI_PROP_VENDOR</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklConfigItem-struct"><link linkend="XklConfigItem">XklConfigItem</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklConfigRec-struct"><link linkend="XklConfigRec">XklConfigRec</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklConfigRegistry-struct"><link linkend="XklConfigRegistry">XklConfigRegistry</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklConfigRegistry--engine"><link linkend="XklConfigRegistry--engine">XklConfigRegistry:engine</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklConfigRegistryPrivate"><link linkend="XklConfigRegistryPrivate">XklConfigRegistryPrivate</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine-struct"><link linkend="XklEngine">XklEngine</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine-new-toplevel-window"><link linkend="XklEngine-new-toplevel-window">XklEngine::new-toplevel-window</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine-X-config-changed"><link linkend="XklEngine-X-config-changed">XklEngine::X-config-changed</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine-X-new-device"><link linkend="XklEngine-X-new-device">XklEngine::X-new-device</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine-X-state-changed"><link linkend="XklEngine-X-state-changed">XklEngine::X-state-changed</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--backendName"><link linkend="XklEngine--backendName">XklEngine:backendName</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--default-group"><link linkend="XklEngine--default-group">XklEngine:default-group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--display"><link linkend="XklEngine--display">XklEngine:display</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--indicators-handling"><link linkend="XklEngine--indicators-handling">XklEngine:indicators-handling</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--max-num-groups"><link linkend="XklEngine--max-num-groups">XklEngine:max-num-groups</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--num-groups"><link linkend="XklEngine--num-groups">XklEngine:num-groups</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngine--secondary-groups-mask"><link linkend="XklEngine--secondary-groups-mask">XklEngine:secondary-groups-mask</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngineFeatures"><link linkend="XklEngineFeatures">XklEngineFeatures</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngineListenModes"><link linkend="XklEngineListenModes">XklEngineListenModes</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEnginePrivate"><link linkend="XklEnginePrivate">XklEnginePrivate</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklEngineStateChange"><link linkend="XklEngineStateChange">XklEngineStateChange</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklLogAppender"><link linkend="XklLogAppender">XklLogAppender</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XklState"><link linkend="XklState">XklState</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-item-new"><link linkend="xkl-config-item-new">xkl_config_item_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-activate"><link linkend="xkl-config-rec-activate">xkl_config_rec_activate</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-equals"><link linkend="xkl-config-rec-equals">xkl_config_rec_equals</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-get-from-backup"><link linkend="xkl-config-rec-get-from-backup">xkl_config_rec_get_from_backup</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-get-from-root-window-property"><link linkend="xkl-config-rec-get-from-root-window-property">xkl_config_rec_get_from_root_window_property</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-get-from-server"><link linkend="xkl-config-rec-get-from-server">xkl_config_rec_get_from_server</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-new"><link linkend="xkl-config-rec-new">xkl_config_rec_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-reset"><link linkend="xkl-config-rec-reset">xkl_config_rec_reset</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-set-to-root-window-property"><link linkend="xkl-config-rec-set-to-root-window-property">xkl_config_rec_set_to_root_window_property</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-rec-write-to-file"><link linkend="xkl-config-rec-write-to-file">xkl_config_rec_write_to_file</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-find-layout"><link linkend="xkl-config-registry-find-layout">xkl_config_registry_find_layout</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-find-model"><link linkend="xkl-config-registry-find-model">xkl_config_registry_find_model</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-find-option"><link linkend="xkl-config-registry-find-option">xkl_config_registry_find_option</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-find-option-group"><link linkend="xkl-config-registry-find-option-group">xkl_config_registry_find_option_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-find-variant"><link linkend="xkl-config-registry-find-variant">xkl_config_registry_find_variant</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-country"><link linkend="xkl-config-registry-foreach-country">xkl_config_registry_foreach_country</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-country-variant"><link linkend="xkl-config-registry-foreach-country-variant">xkl_config_registry_foreach_country_variant</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-language"><link linkend="xkl-config-registry-foreach-language">xkl_config_registry_foreach_language</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-language-variant"><link linkend="xkl-config-registry-foreach-language-variant">xkl_config_registry_foreach_language_variant</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-layout"><link linkend="xkl-config-registry-foreach-layout">xkl_config_registry_foreach_layout</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-layout-variant"><link linkend="xkl-config-registry-foreach-layout-variant">xkl_config_registry_foreach_layout_variant</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-model"><link linkend="xkl-config-registry-foreach-model">xkl_config_registry_foreach_model</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-option"><link linkend="xkl-config-registry-foreach-option">xkl_config_registry_foreach_option</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-foreach-option-group"><link linkend="xkl-config-registry-foreach-option-group">xkl_config_registry_foreach_option_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-config-registry-load"><link linkend="xkl-config-registry-load">xkl_config_registry_load</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-debug"><link linkend="xkl-debug">xkl_debug</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-default-log-appender"><link linkend="xkl-default-log-appender">xkl_default_log_appender</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-allow-one-switch-to-secondary-group"><link linkend="xkl-engine-allow-one-switch-to-secondary-group">xkl_engine_allow_one_switch_to_secondary_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-backup-names-prop"><link linkend="xkl-engine-backup-names-prop">xkl_engine_backup_names_prop</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-delete-state"><link linkend="xkl-engine-delete-state">xkl_engine_delete_state</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-filter-events"><link linkend="xkl-engine-filter-events">xkl_engine_filter_events</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-backend-name"><link linkend="xkl-engine-get-backend-name">xkl_engine_get_backend_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-current-state"><link linkend="xkl-engine-get-current-state">xkl_engine_get_current_state</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-current-window"><link linkend="xkl-engine-get-current-window">xkl_engine_get_current_window</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-current-window-group"><link linkend="xkl-engine-get-current-window-group">xkl_engine_get_current_window_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-default-group"><link linkend="xkl-engine-get-default-group">xkl_engine_get_default_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-features"><link linkend="xkl-engine-get-features">xkl_engine_get_features</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-groups-names"><link linkend="xkl-engine-get-groups-names">xkl_engine_get_groups_names</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-indicators-handling"><link linkend="xkl-engine-get-indicators-handling">xkl_engine_get_indicators_handling</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-indicators-names"><link linkend="xkl-engine-get-indicators-names">xkl_engine_get_indicators_names</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-instance"><link linkend="xkl-engine-get-instance">xkl_engine_get_instance</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-max-num-groups"><link linkend="xkl-engine-get-max-num-groups">xkl_engine_get_max_num_groups</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-next-group"><link linkend="xkl-engine-get-next-group">xkl_engine_get_next_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-num-groups"><link linkend="xkl-engine-get-num-groups">xkl_engine_get_num_groups</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-prev-group"><link linkend="xkl-engine-get-prev-group">xkl_engine_get_prev_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-secondary-groups-mask"><link linkend="xkl-engine-get-secondary-groups-mask">xkl_engine_get_secondary_groups_mask</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-state"><link linkend="xkl-engine-get-state">xkl_engine_get_state</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-get-window-title"><link linkend="xkl-engine-get-window-title">xkl_engine_get_window_title</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-grab-key"><link linkend="xkl-engine-grab-key">xkl_engine_grab_key</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-is-group-per-toplevel-window"><link linkend="xkl-engine-is-group-per-toplevel-window">xkl_engine_is_group_per_toplevel_window</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-is-window-from-same-toplevel-window"><link linkend="xkl-engine-is-window-from-same-toplevel-window">xkl_engine_is_window_from_same_toplevel_window</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-is-window-transparent"><link linkend="xkl-engine-is-window-transparent">xkl_engine_is_window_transparent</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-lock-group"><link linkend="xkl-engine-lock-group">xkl_engine_lock_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-pause-listen"><link linkend="xkl-engine-pause-listen">xkl_engine_pause_listen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-resume-listen"><link linkend="xkl-engine-resume-listen">xkl_engine_resume_listen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-save-state"><link linkend="xkl-engine-save-state">xkl_engine_save_state</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-set-default-group"><link linkend="xkl-engine-set-default-group">xkl_engine_set_default_group</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-set-group-per-toplevel-window"><link linkend="xkl-engine-set-group-per-toplevel-window">xkl_engine_set_group_per_toplevel_window</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-set-indicators-handling"><link linkend="xkl-engine-set-indicators-handling">xkl_engine_set_indicators_handling</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-set-secondary-groups-mask"><link linkend="xkl-engine-set-secondary-groups-mask">xkl_engine_set_secondary_groups_mask</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-set-window-transparent"><link linkend="xkl-engine-set-window-transparent">xkl_engine_set_window_transparent</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-start-listen"><link linkend="xkl-engine-start-listen">xkl_engine_start_listen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-stop-listen"><link linkend="xkl-engine-stop-listen">xkl_engine_stop_listen</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-engine-ungrab-key"><link linkend="xkl-engine-ungrab-key">xkl_engine_ungrab_key</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-get-last-error"><link linkend="xkl-get-last-error">xkl_get_last_error</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XKL-MAX-CI-DESC-LENGTH--CAPS"><link linkend="XKL-MAX-CI-DESC-LENGTH--CAPS">XKL_MAX_CI_DESC_LENGTH</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XKL-MAX-CI-NAME-LENGTH--CAPS"><link linkend="XKL-MAX-CI-NAME-LENGTH--CAPS">XKL_MAX_CI_NAME_LENGTH</link></primaryie></indexentry>
+<indexentry><primaryie linkends="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS"><link linkend="XKL-MAX-CI-SHORT-DESC-LENGTH--CAPS">XKL_MAX_CI_SHORT_DESC_LENGTH</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-restore-names-prop"><link linkend="xkl-restore-names-prop">xkl_restore_names_prop</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-set-debug-level"><link linkend="xkl-set-debug-level">xkl_set_debug_level</link></primaryie></indexentry>
+<indexentry><primaryie linkends="xkl-set-log-appender"><link linkend="xkl-set-log-appender">xkl_set_log_appender</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

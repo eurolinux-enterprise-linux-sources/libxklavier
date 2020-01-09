@@ -1,0 +1,1556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XklEngine</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Libxklavier Reference Manual">
+<link rel="up" href="ch01.html" title="Libxklavier Objects">
+<link rel="prev" href="ch01.html" title="Libxklavier Objects">
+<link rel="next" href="XklConfigItem.html" title="XklConfigItem">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Libxklavier Objects">
+<link rel="chapter" href="ch02.html" title="Libxklavier Utilities">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxklavier Reference Manual</th>
+<td><a accesskey="n" href="XklConfigItem.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#XklEngine.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#XklEngine.description" class="shortcut">Description</a>
+                 | 
+                <a href="#XklEngine.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#XklEngine.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#XklEngine.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="XklEngine"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XklEngine.top_of_page"></a>XklEngine</span></h2>
+<p>XklEngine</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="XklEngine.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="XklEngine.html#XklEnginePrivate" title="XklEnginePrivate">XklEnginePrivate</a>;
+enum                <a class="link" href="XklEngine.html#XklEngineStateChange" title="enum XklEngineStateChange">XklEngineStateChange</a>;
+enum                <a class="link" href="XklEngine.html#XklEngineFeatures" title="enum XklEngineFeatures">XklEngineFeatures</a>;
+                    <a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a>;
+                    <a class="link" href="XklEngine.html#XklEngine-struct" title="XklEngine">XklEngine</a>;
+<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *         <a class="link" href="XklEngine.html#xkl-engine-get-instance" title="xkl_engine_get_instance ()">xkl_engine_get_instance</a>             (Display *display);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="XklEngine.html#xkl-engine-get-backend-name" title="xkl_engine_get_backend_name ()">xkl_engine_get_backend_name</a>         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="XklEngine.html#xkl-engine-get-features" title="xkl_engine_get_features ()">xkl_engine_get_features</a>             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="XklEngine.html#xkl-engine-get-max-num-groups" title="xkl_engine_get_max_num_groups ()">xkl_engine_get_max_num_groups</a>       (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+enum                <a class="link" href="XklEngine.html#XklEngineListenModes" title="enum XklEngineListenModes">XklEngineListenModes</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-start-listen" title="xkl_engine_start_listen ()">xkl_engine_start_listen</a>             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> flags);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-stop-listen" title="xkl_engine_stop_listen ()">xkl_engine_stop_listen</a>              (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-pause-listen" title="xkl_engine_pause_listen ()">xkl_engine_pause_listen</a>             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-resume-listen" title="xkl_engine_resume_listen ()">xkl_engine_resume_listen</a>            (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-grab-key" title="xkl_engine_grab_key ()">xkl_engine_grab_key</a>                 (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> keycode,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> modifiers);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-ungrab-key" title="xkl_engine_ungrab_key ()">xkl_engine_ungrab_key</a>               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> keycode,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> modifiers);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-filter-events" title="xkl_engine_filter_events ()">xkl_engine_filter_events</a>            (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         XEvent *evt);
+void                <a class="link" href="XklEngine.html#xkl-engine-allow-one-switch-to-secondary-group" title="xkl_engine_allow_one_switch_to_secondary_group ()">xkl_engine_allow_one_switch_to_secondary_group</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+Window              <a class="link" href="XklEngine.html#xkl-engine-get-current-window" title="xkl_engine_get_current_window ()">xkl_engine_get_current_window</a>       (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *          <a class="link" href="XklEngine.html#xkl-engine-get-current-state" title="xkl_engine_get_current_state ()">xkl_engine_get_current_state</a>        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="XklEngine.html#xkl-engine-get-window-title" title="xkl_engine_get_window_title ()">xkl_engine_get_window_title</a>         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-get-state" title="xkl_engine_get_state ()">xkl_engine_get_state</a>                (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         <a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *state_out);
+void                <a class="link" href="XklEngine.html#xkl-engine-delete-state" title="xkl_engine_delete_state ()">xkl_engine_delete_state</a>             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);
+void                <a class="link" href="XklEngine.html#xkl-engine-save-state" title="xkl_engine_save_state ()">xkl_engine_save_state</a>               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         <a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *state);
+void                <a class="link" href="XklEngine.html#xkl-engine-set-window-transparent" title="xkl_engine_set_window_transparent ()">xkl_engine_set_window_transparent</a>   (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         gbooleantransparent );
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-is-window-transparent" title="xkl_engine_is_window_transparent ()">xkl_engine_is_window_transparent</a>    (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-is-window-from-same-toplevel-window" title="xkl_engine_is_window_from_same_toplevel_window ()">xkl_engine_is_window_from_same_toplevel_window</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win1,
+                                                         Window win2);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="XklEngine.html#xkl-engine-get-num-groups" title="xkl_engine_get_num_groups ()">xkl_engine_get_num_groups</a>           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **      <a class="link" href="XklEngine.html#xkl-engine-get-groups-names" title="xkl_engine_get_groups_names ()">xkl_engine_get_groups_names</a>         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **      <a class="link" href="XklEngine.html#xkl-engine-get-indicators-names" title="xkl_engine_get_indicators_names ()">xkl_engine_get_indicators_names</a>     (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-get-next-group" title="xkl_engine_get_next_group ()">xkl_engine_get_next_group</a>           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-get-prev-group" title="xkl_engine_get_prev_group ()">xkl_engine_get_prev_group</a>           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-get-current-window-group" title="xkl_engine_get_current_window_group ()">xkl_engine_get_current_window_group</a> (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+void                <a class="link" href="XklEngine.html#xkl-engine-lock-group" title="xkl_engine_lock_group ()">xkl_engine_lock_group</a>               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> group);
+void                <a class="link" href="XklEngine.html#xkl-engine-set-group-per-toplevel-window" title="xkl_engine_set_group_per_toplevel_window ()">xkl_engine_set_group_per_toplevel_window</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         gbooleanis_global );
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-is-group-per-toplevel-window" title="xkl_engine_is_group_per_toplevel_window ()">xkl_engine_is_group_per_toplevel_window</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+void                <a class="link" href="XklEngine.html#xkl-engine-set-indicators-handling" title="xkl_engine_set_indicators_handling ()">xkl_engine_set_indicators_handling</a>  (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         gbooleanwhether_handle );
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="XklEngine.html#xkl-engine-get-indicators-handling" title="xkl_engine_get_indicators_handling ()">xkl_engine_get_indicators_handling</a>  (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+void                <a class="link" href="XklEngine.html#xkl-engine-set-secondary-groups-mask" title="xkl_engine_set_secondary_groups_mask ()">xkl_engine_set_secondary_groups_mask</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> mask);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="XklEngine.html#xkl-engine-get-secondary-groups-mask" title="xkl_engine_get_secondary_groups_mask ()">xkl_engine_get_secondary_groups_mask</a>
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+void                <a class="link" href="XklEngine.html#xkl-engine-set-default-group" title="xkl_engine_set_default_group ()">xkl_engine_set_default_group</a>        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> group);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="XklEngine.html#xkl-engine-get-default-group" title="xkl_engine_get_default_group ()">xkl_engine_get_default_group</a>        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----XklEngine
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="XklEngine.html#XklEngine--backendName" title='The "backendName" property'>backendName</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read
+  "<a class="link" href="XklEngine.html#XklEngine--default-group" title='The "default-group" property'>default-group</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read
+  "<a class="link" href="XklEngine.html#XklEngine--display" title='The "display" property'>display</a>"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only
+  "<a class="link" href="XklEngine.html#XklEngine--indicators-handling" title='The "indicators-handling" property'>indicators-handling</a>"      <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read
+  "<a class="link" href="XklEngine.html#XklEngine--max-num-groups" title='The "max-num-groups" property'>max-num-groups</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read
+  "<a class="link" href="XklEngine.html#XklEngine--num-groups" title='The "num-groups" property'>num-groups</a>"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read
+  "<a class="link" href="XklEngine.html#XklEngine--secondary-groups-mask" title='The "secondary-groups-mask" property'>secondary-groups-mask</a>"    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="XklEngine.html#XklEngine-X-config-changed" title='The "X-config-changed" signal'>X-config-changed</a>"                               : Run Last
+  "<a class="link" href="XklEngine.html#XklEngine-X-new-device" title='The "X-new-device" signal'>X-new-device</a>"                                   : Run Last
+  "<a class="link" href="XklEngine.html#XklEngine-X-state-changed" title='The "X-state-changed" signal'>X-state-changed</a>"                                : Run Last
+  "<a class="link" href="XklEngine.html#XklEngine-new-toplevel-window" title='The "new-toplevel-window" signal'>new-toplevel-window</a>"                            : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklEnginePrivate"></a><h3>XklEnginePrivate</h3>
+<pre class="programlisting">typedef struct _XklEnginePrivate XklEnginePrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngineStateChange"></a><h3>enum XklEngineStateChange</h3>
+<pre class="programlisting">	typedef enum {
+		GROUP_CHANGED,
+		INDICATORS_CHANGED
+	} XklEngineStateChange;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngineFeatures"></a><h3>enum XklEngineFeatures</h3>
+<pre class="programlisting">	typedef enum {
+		XKLF_CAN_TOGGLE_INDICATORS = 0x01,
+		XKLF_CAN_OUTPUT_CONFIG_AS_ASCII = 0x02,
+		XKLF_CAN_OUTPUT_CONFIG_AS_BINARY = 0x04,
+		XKLF_MULTIPLE_LAYOUTS_SUPPORTED = 0x08,
+		XKLF_REQUIRES_MANUAL_LAYOUT_MANAGEMENT = 0x10,
+		XKLF_DEVICE_DISCOVERY = 0x20
+	} XklEngineFeatures;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklState"></a><h3>XklState</h3>
+<pre class="programlisting">typedef struct {
+/** 
+ * selected group 
+ */
+		gint32 group;
+/**
+ * set of active indicators
+ */
+		guint32 indicators;
+} XklState;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine-struct"></a><h3>XklEngine</h3>
+<pre class="programlisting">typedef struct _XklEngine XklEngine;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-instance"></a><h3>xkl_engine_get_instance ()</h3>
+<pre class="programlisting"><a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *         xkl_engine_get_instance             (Display *display);</pre>
+<p>
+Get the instance of the XklEngine. Within a process, there is always once instance.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td> the X display used by the application
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the singleton instance
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-backend-name"></a><h3>xkl_engine_get_backend_name ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       xkl_engine_get_backend_name         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+What kind of backend is used</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> some string id of the backend
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-features"></a><h3>xkl_engine_get_features ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               xkl_engine_get_features             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Provides information regarding available backend features
+(combination of XKLF_* constants)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> ORed XKLF_* constants
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-max-num-groups"></a><h3>xkl_engine_get_max_num_groups ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               xkl_engine_get_max_num_groups       (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Provides the information on maximum number of simultaneously supported 
+groups (layouts)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> maximum number of the groups in configuration, 
+        0 if no restrictions.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngineListenModes"></a><h3>enum XklEngineListenModes</h3>
+<pre class="programlisting">	typedef enum {
+		XKLL_MANAGE_WINDOW_STATES = 0x01,
+		XKLL_TRACK_KEYBOARD_STATE = 0x02,
+		XKLL_MANAGE_LAYOUTS = 0x04
+	} XklEngineListenModes;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-start-listen"></a><h3>xkl_engine_start_listen ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_start_listen             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> flags);</pre>
+<p>
+Starts listening for XKB-related events</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td> any combination of XKLL_* constants
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-stop-listen"></a><h3>xkl_engine_stop_listen ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_stop_listen              (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Stops listening for XKB-related events</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-pause-listen"></a><h3>xkl_engine_pause_listen ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_pause_listen             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Temporary pauses listening for XKB-related events</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-resume-listen"></a><h3>xkl_engine_resume_listen ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_resume_listen            (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Resumes listening for XKB-related events</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-grab-key"></a><h3>xkl_engine_grab_key ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_grab_key                 (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> keycode,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> modifiers);</pre>
+<p>
+Grabs some key</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keycode</code></em> :</span></p></td>
+<td> keycode
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifiers</code></em> :</span></p></td>
+<td> bitmask of modifiers
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-ungrab-key"></a><h3>xkl_engine_ungrab_key ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_ungrab_key               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> keycode,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> modifiers);</pre>
+<p>
+Ungrabs some key</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keycode</code></em> :</span></p></td>
+<td> keycode
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifiers</code></em> :</span></p></td>
+<td> bitmask of modifiers
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-filter-events"></a><h3>xkl_engine_filter_events ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_filter_events            (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         XEvent *evt);</pre>
+<p>
+Processes X events. Should be included into the main event cycle of an
+application. One of the most important functions.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>evt</code></em> :</span></p></td>
+<td> delivered X event
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if the event it processed - 1 otherwise
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-allow-one-switch-to-secondary-group"></a><h3>xkl_engine_allow_one_switch_to_secondary_group ()</h3>
+<pre class="programlisting">void                xkl_engine_allow_one_switch_to_secondary_group
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Allows to switch (once) to the secondary group</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-current-window"></a><h3>xkl_engine_get_current_window ()</h3>
+<pre class="programlisting">Window              xkl_engine_get_current_window       (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> currently focused window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-current-state"></a><h3>xkl_engine_get_current_state ()</h3>
+<pre class="programlisting"><a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *          xkl_engine_get_current_state        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> current state of the keyboard.
+Returned value is a statically allocated buffer, should not be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-window-title"></a><h3>xkl_engine_get_window_title ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             xkl_engine_get_window_title         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> X window
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the window title of some window or NULL. 
+If not NULL, it should be freed with XFree
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-state"></a><h3>xkl_engine_get_state ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_get_state                (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         <a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *state_out);</pre>
+<p>
+Finds the state for a given window (for its "App window").</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> window to query
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_out</code></em> :</span></p></td>
+<td> structure to store the state
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success, otherwise FALSE 
+(the error message can be obtained using xkl_GetLastError).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-delete-state"></a><h3>xkl_engine_delete_state ()</h3>
+<pre class="programlisting">void                xkl_engine_delete_state             (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);</pre>
+<p>
+Drops the state of a given window (of its "App window").</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> target window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-save-state"></a><h3>xkl_engine_save_state ()</h3>
+<pre class="programlisting">void                xkl_engine_save_state               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         <a class="link" href="XklEngine.html#XklState" title="XklState">XklState</a> *state);</pre>
+<p>
+Stores ths state for a given window</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> target window
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td> new state of the window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-set-window-transparent"></a><h3>xkl_engine_set_window_transparent ()</h3>
+<pre class="programlisting">void                xkl_engine_set_window_transparent   (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win,
+                                                         gbooleantransparent );</pre>
+<p>
+Sets the "transparent" flag. It means focus switching onto 
+this window will never change the state.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> window do set the flag for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-is-window-transparent"></a><h3>xkl_engine_is_window_transparent ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_is_window_transparent    (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
+<td> window to get the transparent flag from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the window is "transparent"
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-is-window-from-same-toplevel-window"></a><h3>xkl_engine_is_window_from_same_toplevel_window ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_is_window_from_same_toplevel_window
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         Window win1,
+                                                         Window win2);</pre>
+<p>
+Checks whether 2 windows have the same topmost window</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win1</code></em> :</span></p></td>
+<td> first window
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>win2</code></em> :</span></p></td>
+<td> second window
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE is windows are in the same application
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-num-groups"></a><h3>xkl_engine_get_num_groups ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               xkl_engine_get_num_groups           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the total number of groups in the current configuration 
+(keyboard)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-groups-names"></a><h3>xkl_engine_get_groups_names ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **      xkl_engine_get_groups_names         (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the array of group names for the current XKB configuration 
+(keyboard).
+This array is static, should not be freed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-indicators-names"></a><h3>xkl_engine_get_indicators_names ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **      xkl_engine_get_indicators_names     (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the array of indicator names for the current XKB configuration 
+(keyboard).
+This array is static, should not be freed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-next-group"></a><h3>xkl_engine_get_next_group ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_get_next_group           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Calculates next group id. Does not change the state of anything.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> next group id
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-prev-group"></a><h3>xkl_engine_get_prev_group ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_get_prev_group           (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Calculates prev group id. Does not change the state of anything.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> prev group id
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-current-window-group"></a><h3>xkl_engine_get_current_window_group ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_get_current_window_group (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> saved group id of the current window. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-lock-group"></a><h3>xkl_engine_lock_group ()</h3>
+<pre class="programlisting">void                xkl_engine_lock_group               (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> group);</pre>
+<p>
+Locks the group. Can be used after xkl_GetXXXGroup functions</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td> group number for locking
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-set-group-per-toplevel-window"></a><h3>xkl_engine_set_group_per_toplevel_window ()</h3>
+<pre class="programlisting">void                xkl_engine_set_group_per_toplevel_window
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         gbooleanis_global );</pre>
+<p>
+Sets the configuration parameter: group per application</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-is-group-per-toplevel-window"></a><h3>xkl_engine_is_group_per_toplevel_window ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_is_group_per_toplevel_window
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of the parameter: group per application
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-set-indicators-handling"></a><h3>xkl_engine_set_indicators_handling ()</h3>
+<pre class="programlisting">void                xkl_engine_set_indicators_handling  (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         gbooleanwhether_handle );</pre>
+<p>
+Sets the configuration parameter: perform indicators handling</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-indicators-handling"></a><h3>xkl_engine_get_indicators_handling ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            xkl_engine_get_indicators_handling  (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of the parameter: perform indicator handling
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-set-secondary-groups-mask"></a><h3>xkl_engine_set_secondary_groups_mask ()</h3>
+<pre class="programlisting">void                xkl_engine_set_secondary_groups_mask
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> mask);</pre>
+<p>
+Sets the secondary groups (one bit per group). 
+Secondary groups require explicit "allowance" for switching</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mask</code></em> :</span></p></td>
+<td> new group mask
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-secondary-groups-mask"></a><h3>xkl_engine_get_secondary_groups_mask ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               xkl_engine_get_secondary_groups_mask
+                                                        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the secondary group mask
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-set-default-group"></a><h3>xkl_engine_set_default_group ()</h3>
+<pre class="programlisting">void                xkl_engine_set_default_group        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> group);</pre>
+<p>
+Configures the default group set on window creation.
+If -1, no default group is used</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td> default group
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="xkl-engine-get-default-group"></a><h3>xkl_engine_get_default_group ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                xkl_engine_get_default_group        (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *engine);</pre>
+<p>
+Returns the default group set on window creation
+If -1, no default group is used</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
+<td> the engine
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the default group
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklEngine--backendName"></a><h3>The <code class="literal">"backendName"</code> property</h3>
+<pre class="programlisting">  "backendName"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read</pre>
+<p>Backend name.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--default-group"></a><h3>The <code class="literal">"default-group"</code> property</h3>
+<pre class="programlisting">  "default-group"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read</pre>
+<p>Default group.</p>
+<p>Allowed values: &lt;= 256</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--display"></a><h3>The <code class="literal">"display"</code> property</h3>
+<pre class="programlisting">  "display"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only</pre>
+<p>X Display pointer.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--indicators-handling"></a><h3>The <code class="literal">"indicators-handling"</code> property</h3>
+<pre class="programlisting">  "indicators-handling"      <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read</pre>
+<p>Whether engine should handle indicators.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--max-num-groups"></a><h3>The <code class="literal">"max-num-groups"</code> property</h3>
+<pre class="programlisting">  "max-num-groups"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read</pre>
+<p>Max number of groups.</p>
+<p>Allowed values: &lt;= 256</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--num-groups"></a><h3>The <code class="literal">"num-groups"</code> property</h3>
+<pre class="programlisting">  "num-groups"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read</pre>
+<p>Current number of groups.</p>
+<p>Allowed values: &lt;= 256</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine--secondary-groups-mask"></a><h3>The <code class="literal">"secondary-groups-mask"</code> property</h3>
+<pre class="programlisting">  "secondary-groups-mask"    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read</pre>
+<p>Secondary groups mask.</p>
+<p>Allowed values: &lt;= 256</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="XklEngine.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="XklEngine-X-config-changed"></a><h3>The <code class="literal">"X-config-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *xklengine,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xklengine</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine-X-new-device"></a><h3>The <code class="literal">"X-new-device"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *xklengine,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xklengine</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine-X-state-changed"></a><h3>The <code class="literal">"X-state-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a>               *xklengine,
+                                                        XklEngineStateChangeType arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                     arg2,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>                 arg3,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>                 user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xklengine</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XklEngine-new-toplevel-window"></a><h3>The <code class="literal">"new-toplevel-window"</code> signal</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                user_function                      (<a class="link" href="XklEngine.html" title="XklEngine">XklEngine</a> *xklengine,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#glong"
+>glong</a>      arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#glong"
+>glong</a>      arg2,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xklengine</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

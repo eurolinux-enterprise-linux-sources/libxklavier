@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libxklavier-xklavier">
+<refmeta>
+<refentrytitle role="top_of_page" id="libxklavier-xklavier.top_of_page">xklavier</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBXKLAVIER Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>xklavier</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libxklavier-xklavier.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+const <link linkend="gchar">gchar</link> *       <link linkend="xkl-get-last-error">xkl_get_last_error</link>                  (void);
+<link linkend="void">void</link>                (<link linkend="XklLogAppender">*XklLogAppender</link>)                   (const <link linkend="gchar">gchar</link> file[],
+                                                         const <link linkend="gchar">gchar</link> function[],
+                                                         <link linkend="gint">gint</link> level,
+                                                         const <link linkend="gchar">gchar</link> format[],
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="void">void</link>                <link linkend="xkl-default-log-appender">xkl_default_log_appender</link>            (const <link linkend="gchar">gchar</link> file[],
+                                                         const <link linkend="gchar">gchar</link> function[],
+                                                         <link linkend="gint">gint</link> level,
+                                                         const <link linkend="gchar">gchar</link> format[],
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="void">void</link>                <link linkend="xkl-set-log-appender">xkl_set_log_appender</link>                (<link linkend="XklLogAppender">XklLogAppender</link> fun);
+<link linkend="void">void</link>                <link linkend="xkl-set-debug-level">xkl_set_debug_level</link>                 (<link linkend="gint">gint</link> level);
+#define             <link linkend="xkl-debug">xkl_debug</link>                           ( level, ... )
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libxklavier-xklavier.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libxklavier-xklavier.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="xkl-get-last-error" role="function">
+<title>xkl_get_last_error ()</title>
+<indexterm zone="xkl-get-last-error"><primary sortas="xkl_get_last_error">xkl_get_last_error</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       xkl_get_last_error                  (void);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the text message (statically allocated) of the last error
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="XklLogAppender" role="function">
+<title>XklLogAppender ()</title>
+<indexterm zone="XklLogAppender"><primary sortas="XklLogAppender">XklLogAppender</primary></indexterm><programlisting><link linkend="void">void</link>                (*XklLogAppender)                   (const <link linkend="gchar">gchar</link> file[],
+                                                         const <link linkend="gchar">gchar</link> function[],
+                                                         <link linkend="gint">gint</link> level,
+                                                         const <link linkend="gchar">gchar</link> format[],
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+Custom log output method for _xkl_debug. This appender is NOT called if the
+level of the message is greater than currently set debug level.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara> name of the source file. 
+Preprocessor symbol__FILE__ should be used here
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&#160;:</term>
+<listitem><simpara> name of the function
+Preprocessor symbol__func__ should be used here
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>level</parameter>&#160;:</term>
+<listitem><simpara> level of the message
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara> format (like in printf)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&#160;:</term>
+<listitem><simpara> list of parameters
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-default-log-appender" role="function">
+<title>xkl_default_log_appender ()</title>
+<indexterm zone="xkl-default-log-appender"><primary sortas="xkl_default_log_appender">xkl_default_log_appender</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_default_log_appender            (const <link linkend="gchar">gchar</link> file[],
+                                                         const <link linkend="gchar">gchar</link> function[],
+                                                         <link linkend="gint">gint</link> level,
+                                                         const <link linkend="gchar">gchar</link> format[],
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+Default log output method. Sends everything to stdout.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara> name of the source file. 
+Preprocessor symbol__FILE__ should be used here
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&#160;:</term>
+<listitem><simpara> name of the function
+Preprocessor symbol__func__ should be used here
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>level</parameter>&#160;:</term>
+<listitem><simpara> level of the message
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara> format (like in printf)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&#160;:</term>
+<listitem><simpara> list of parameters
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-set-log-appender" role="function">
+<title>xkl_set_log_appender ()</title>
+<indexterm zone="xkl-set-log-appender"><primary sortas="xkl_set_log_appender">xkl_set_log_appender</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_set_log_appender                (<link linkend="XklLogAppender">XklLogAppender</link> fun);</programlisting>
+<para>
+Installs the custom log appender.function</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>fun</parameter>&#160;:</term>
+<listitem><simpara> new log appender
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-set-debug-level" role="function">
+<title>xkl_set_debug_level ()</title>
+<indexterm zone="xkl-set-debug-level"><primary sortas="xkl_set_debug_level">xkl_set_debug_level</primary></indexterm><programlisting><link linkend="void">void</link>                xkl_set_debug_level                 (<link linkend="gint">gint</link> level);</programlisting>
+<para>
+Sets maximum debug level. 
+Message of the level more than the one set here - will be ignored</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>level</parameter>&#160;:</term>
+<listitem><simpara> new debug level
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="xkl-debug" role="macro">
+<title>xkl_debug()</title>
+<indexterm zone="xkl-debug"><primary sortas="xkl_debug">xkl_debug</primary></indexterm><programlisting>#define             xkl_debug( level, ... )</programlisting>
+<para>
+Output (optionally) some debug info</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>level</parameter>&#160;:</term>
+<listitem><simpara> level of the message
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>
