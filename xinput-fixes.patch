@@ -1,13 +1,7 @@
-? xinput-fixes.patch
-Index: libxklavier/xklavier_evt.c
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_evt.c,v
-retrieving revision 1.26
-retrieving revision 1.29
-diff -u -r1.26 -r1.29
---- libxklavier/xklavier_evt.c	24 Apr 2009 22:10:19 -0000	1.26
-+++ libxklavier/xklavier_evt.c	30 Sep 2009 09:49:57 -0000	1.29
-@@ -50,7 +50,8 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_evt.c.xinput libxklavier-4.0/libxklavier/xklavier_evt.c
+--- libxklavier-4.0/libxklavier/xklavier_evt.c.xinput	2009-04-24 18:07:31.000000000 -0400
++++ libxklavier-4.0/libxklavier/xklavier_evt.c	2011-10-14 18:10:51.226396618 -0400
+@@ -50,7 +50,8 @@ xkl_engine_filter_events(XklEngine * eng
  			break;
  		case CreateNotify:
  			xkl_engine_process_create_window_evt(engine,
@@ -17,7 +11,7 @@ diff -u -r1.26 -r1.29
  			break;
  		case DestroyNotify:
  			xkl_debug(150,
-@@ -100,6 +101,8 @@
+@@ -100,6 +101,8 @@ xkl_engine_process_focus_in_evt(XklEngin
  				XFocusChangeEvent * fev)
  {
  	Window win;
@@ -26,7 +20,7 @@ diff -u -r1.26 -r1.29
  	Window toplevel_win;
  	XklState selected_window_state;
  
-@@ -135,36 +138,51 @@
+@@ -135,36 +138,51 @@ xkl_engine_process_focus_in_evt(XklEngin
  
  	if (xkl_engine_get_toplevel_window_state
  	    (engine, toplevel_win, &selected_window_state)) {
@@ -105,7 +99,7 @@ diff -u -r1.26 -r1.29
  
  			xkl_engine_priv(engine, curr_toplvl_win) =
  			    toplevel_win;
-@@ -216,8 +234,10 @@
+@@ -216,8 +234,10 @@ xkl_engine_process_focus_in_evt(XklEngin
  							  "Restoring the group from %d to %d after gaining focus\n",
  							  xkl_engine_priv
  							  (engine,
@@ -118,7 +112,7 @@ diff -u -r1.26 -r1.29
  						/*
  						 *  For fast mouse movements - the state is probably not updated yet
  						 *  (because of the group change notification being late).
-@@ -225,17 +245,21 @@
+@@ -225,17 +245,21 @@ xkl_engine_process_focus_in_evt(XklEngin
  						 */
  						xkl_engine_update_current_state
  						    (engine,
@@ -144,7 +138,7 @@ diff -u -r1.26 -r1.29
  						xkl_engine_one_switch_to_secondary_group_performed
  						    (engine);
  					}
-@@ -249,8 +273,10 @@
+@@ -249,8 +273,10 @@ xkl_engine_process_focus_in_evt(XklEngin
  					xkl_debug(150,
  						  "Restoring the indicators from %X to %X after gaining focus\n",
  						  xkl_engine_priv(engine,
@@ -157,7 +151,7 @@ diff -u -r1.26 -r1.29
  					xkl_engine_ensure_vtable_inited
  					    (engine);
  					xkl_engine_vcall(engine,
-@@ -261,12 +287,14 @@
+@@ -261,12 +287,14 @@ xkl_engine_process_focus_in_evt(XklEngin
  					xkl_debug(150,
  						  "Not restoring the indicators %X after gaining focus: indicator handling is not enabled\n",
  						  xkl_engine_priv(engine,
@@ -174,7 +168,7 @@ diff -u -r1.26 -r1.29
  		} else
  			xkl_debug(150,
  				  "Same app window - just do nothing\n");
-@@ -392,11 +420,13 @@
+@@ -392,11 +420,13 @@ xkl_engine_process_property_evt(XklEngin
  					  "Something (%d) happened to WM_STATE of window 0x%x\n",
  					  pev->state, pev->window);
  				xkl_engine_select_input_merging(engine,
@@ -190,7 +184,7 @@ diff -u -r1.26 -r1.29
  				}
  			}
  		}		/* XKLL_MANAGE_WINDOW_STATES */
-@@ -475,8 +505,9 @@
+@@ -475,8 +505,10 @@ xkl_process_error(Display * dpy, XErrorE
  		xkl_engine_priv(engine, last_error_code) = evt->error_code;
  
  	switch (evt->error_code) {
@@ -198,10 +192,11 @@ diff -u -r1.26 -r1.29
  	case BadAccess:
 +	case BadDrawable:
 +	case BadWindow:
++	case BadMatch:
  		{
  			XGetErrorText(evt->display, evt->error_code, buf,
  				      sizeof(buf));
-@@ -491,6 +522,22 @@
+@@ -491,6 +523,22 @@ xkl_process_error(Display * dpy, XErrorE
  			break;
  		}
  	default:
@@ -224,15 +219,10 @@ diff -u -r1.26 -r1.29
  		xkl_debug(200,
  			  "Unexpected by libxklavier X ERROR: %p, "
  			  WINID_FORMAT ", %d [%s], "
-Index: libxklavier/xklavier_evt_xkb.c
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_evt_xkb.c,v
-retrieving revision 1.11
-retrieving revision 1.12
-diff -u -r1.11 -r1.12
---- libxklavier/xklavier_evt_xkb.c	17 Nov 2008 00:19:27 -0000	1.11
-+++ libxklavier/xklavier_evt_xkb.c	30 Sep 2009 09:49:57 -0000	1.12
-@@ -162,6 +162,21 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_evt_xkb.c.xinput libxklavier-4.0/libxklavier/xklavier_evt_xkb.c
+--- libxklavier-4.0/libxklavier/xklavier_evt_xkb.c.xinput	2008-11-16 19:14:44.000000000 -0500
++++ libxklavier-4.0/libxklavier/xklavier_evt_xkb.c	2011-10-21 09:59:25.013427838 -0400
+@@ -162,6 +162,22 @@ xkl_xkb_process_x_event(XklEngine * engi
  #endif
  }
  
@@ -244,7 +234,8 @@ diff -u -r1.11 -r1.12
 +{
 +#ifdef HAVE_XINPUT
 +	/* Ignore XInput errors */
-+	if (xerev->error_code == xkl_engine_backend(engine, XklXkb, xi_error_code))
++	if (xerev->error_code >= xkl_engine_backend(engine, XklXkb, xi_error_code)
++	    && xerev->error_code <= ((xkl_engine_backend(engine, XklXkb, xi_error_code) + XI_BadClass)))
 +		return 1;
 +#endif
 +
@@ -254,15 +245,10 @@ diff -u -r1.11 -r1.12
  void
  xkl_xkb_set_indicators(XklEngine * engine, const XklState * window_state)
  {
-Index: libxklavier/xklavier_private.h
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_private.h,v
-retrieving revision 1.38
-retrieving revision 1.39
-diff -u -r1.38 -r1.39
---- libxklavier/xklavier_private.h	23 Jun 2009 23:18:38 -0000	1.38
-+++ libxklavier/xklavier_private.h	30 Sep 2009 09:49:57 -0000	1.39
-@@ -157,6 +157,13 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_private.h.xinput libxklavier-4.0/libxklavier/xklavier_private.h
+--- libxklavier-4.0/libxklavier/xklavier_private.h.xinput	2009-06-23 18:40:38.000000000 -0400
++++ libxklavier-4.0/libxklavier/xklavier_private.h	2011-10-14 18:10:51.221396550 -0400
+@@ -157,6 +157,13 @@ struct _XklEnginePrivate {
  	 gint(*process_x_event) (XklEngine * engine, XEvent * xev);
  
  	/*
@@ -276,15 +262,10 @@ diff -u -r1.38 -r1.39
  	 * Flushes the cached server config info.
  	 * xkb: frees XkbDesc
  	 * xmodmap: frees internal XklConfigRec
-Index: libxklavier/xklavier_private_xkb.h
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_private_xkb.h,v
-retrieving revision 1.18
-retrieving revision 1.20
-diff -u -r1.18 -r1.20
---- libxklavier/xklavier_private_xkb.h	23 Jun 2009 21:33:00 -0000	1.18
-+++ libxklavier/xklavier_private_xkb.h	30 Sep 2009 09:49:57 -0000	1.20
-@@ -48,6 +48,8 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_private_xkb.h.xinput libxklavier-4.0/libxklavier/xklavier_private_xkb.h
+--- libxklavier-4.0/libxklavier/xklavier_private_xkb.h.xinput	2009-06-23 09:59:52.000000000 -0400
++++ libxklavier-4.0/libxklavier/xklavier_private_xkb.h	2011-10-14 18:10:51.221396550 -0400
+@@ -48,6 +48,8 @@ typedef struct _XklXkb {
  
  #ifdef HAVE_XINPUT
  	gint xi_event_type;
@@ -293,7 +274,7 @@ diff -u -r1.18 -r1.20
  #endif
  } XklXkb;
  
-@@ -86,7 +88,9 @@
+@@ -86,7 +88,9 @@ extern gboolean xkl_xkb_write_config_rec
  						 const XklConfigRec * data,
  						 const gboolean binary);
  
@@ -304,15 +285,10 @@ diff -u -r1.18 -r1.20
  
  extern void xkl_xkb_free_all_info(XklEngine * engine);
  
-Index: libxklavier/xklavier_toplevel.c
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_toplevel.c,v
-retrieving revision 1.6
-retrieving revision 1.7
-diff -u -r1.6 -r1.7
---- libxklavier/xklavier_toplevel.c	1 Mar 2008 21:43:19 -0000	1.6
-+++ libxklavier/xklavier_toplevel.c	12 Oct 2009 20:28:55 -0000	1.7
-@@ -114,6 +114,22 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_toplevel.c.xinput libxklavier-4.0/libxklavier/xklavier_toplevel.c
+--- libxklavier-4.0/libxklavier/xklavier_toplevel.c.xinput	2008-03-01 16:44:19.000000000 -0500
++++ libxklavier-4.0/libxklavier/xklavier_toplevel.c	2011-10-14 18:10:51.221396550 -0400
+@@ -114,6 +114,22 @@ xkl_engine_add_toplevel_window(XklEngine
  	    g_signal_lookup("new-toplevel-window", xkl_engine_get_type());
  	g_signal_emitv(params, signal_id, 0, &rv);
  	default_group_to_use = g_value_get_int(&rv);
@@ -335,15 +311,10 @@ diff -u -r1.6 -r1.7
  
  	if (default_group_to_use == -1)
  		default_group_to_use =
-Index: libxklavier/xklavier_xkb.c
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_xkb.c,v
-retrieving revision 1.33
-retrieving revision 1.37
-diff -u -r1.33 -r1.37
---- libxklavier/xklavier_xkb.c	24 Apr 2009 22:10:19 -0000	1.33
-+++ libxklavier/xklavier_xkb.c	30 Sep 2009 09:49:57 -0000	1.37
-@@ -96,7 +96,7 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_xkb.c.xinput libxklavier-4.0/libxklavier/xklavier_xkb.c
+--- libxklavier-4.0/libxklavier/xklavier_xkb.c.xinput	2009-04-24 18:07:31.000000000 -0400
++++ libxklavier-4.0/libxklavier/xklavier_xkb.c	2011-10-14 18:10:51.222396563 -0400
+@@ -96,7 +96,7 @@ xkl_xkb_resume_listen(XklEngine * engine
  			      XkbNamesNotify, XKB_NAMES_EVT_DTL_MASK,
  			      XKB_NAMES_EVT_DTL_MASK);
  #ifdef HAVE_XINPUT
@@ -352,7 +323,7 @@ diff -u -r1.33 -r1.37
  		DevicePresence(display, xitype, xiclass);
  		XSelectExtensionEvent(display,
  				      xkl_engine_priv(engine, root_window),
-@@ -353,8 +353,8 @@
+@@ -353,8 +353,8 @@ xkl_xkb_get_server_state(XklEngine * eng
  				 &current_state_out->indicators))
  		current_state_out->indicators &=
  		    xkl_engine_backend(engine, XklXkb,
@@ -363,7 +334,7 @@ diff -u -r1.33 -r1.37
  	else
  		current_state_out->indicators = 0;
  }
-@@ -402,8 +402,8 @@
+@@ -402,8 +402,8 @@ xkl_xkb_set_indicator(XklEngine * engine
  						     xkl_engine_backend
  						     (engine, XklXkb,
  						      device_id),
@@ -374,7 +345,7 @@ diff -u -r1.33 -r1.37
  						     [indicator_num], set,
  						     False, NULL);
  			else {
-@@ -541,7 +541,7 @@
+@@ -541,7 +541,7 @@ xkl_xkb_init(XklEngine * engine)
  #ifdef LIBXKBFILE_PRESENT
  	gint opcode;
  	gboolean xkl_xkb_ext_present;
@@ -383,7 +354,7 @@ diff -u -r1.33 -r1.37
  
  	xkl_engine_priv(engine, backend_id) = "XKB";
  	xkl_engine_priv(engine, features) = XKLF_CAN_TOGGLE_INDICATORS |
-@@ -564,6 +564,7 @@
+@@ -564,6 +564,7 @@ xkl_xkb_init(XklEngine * engine)
  	xkl_engine_priv(engine, get_num_groups) = xkl_xkb_get_num_groups;
  	xkl_engine_priv(engine, lock_group) = xkl_xkb_lock_group;
  	xkl_engine_priv(engine, process_x_event) = xkl_xkb_process_x_event;
@@ -391,7 +362,7 @@ diff -u -r1.33 -r1.37
  	xkl_engine_priv(engine, free_all_info) = xkl_xkb_free_all_info;
  	xkl_engine_priv(engine, if_cached_info_equals_actual) =
  	    xkl_xkb_if_cached_info_equals_actual;
-@@ -615,14 +616,24 @@
+@@ -615,14 +616,24 @@ xkl_xkb_init(XklEngine * engine)
  		xkl_engine_priv(engine, features) |=
  		    XKLF_MULTIPLE_LAYOUTS_SUPPORTED;
  
@@ -419,15 +390,10 @@ diff -u -r1.33 -r1.37
  	return 0;
  #else
  	xkl_debug(160,
-Index: libxklavier/xklavier_xmm.c
-===================================================================
-RCS file: /cvs/xklavier/libxklavier/libxklavier/xklavier_xmm.c,v
-retrieving revision 1.14
-retrieving revision 1.15
-diff -u -r1.14 -r1.15
---- libxklavier/xklavier_xmm.c	27 Apr 2008 14:59:55 -0000	1.14
-+++ libxklavier/xklavier_xmm.c	30 Sep 2009 09:49:57 -0000	1.15
-@@ -327,6 +327,7 @@
+diff -up libxklavier-4.0/libxklavier/xklavier_xmm.c.xinput libxklavier-4.0/libxklavier/xklavier_xmm.c
+--- libxklavier-4.0/libxklavier/xklavier_xmm.c.xinput	2008-09-05 15:56:33.000000000 -0400
++++ libxklavier-4.0/libxklavier/xklavier_xmm.c	2011-10-14 18:10:51.223396576 -0400
+@@ -327,6 +327,7 @@ xkl_xmm_init(XklEngine * engine)
  	xkl_engine_priv(engine, lock_group) = xkl_xmm_lock_group;
  
  	xkl_engine_priv(engine, process_x_event) = xkl_xmm_process_x_event;

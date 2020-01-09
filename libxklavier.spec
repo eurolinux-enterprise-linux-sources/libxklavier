@@ -1,7 +1,7 @@
 Summary:	High-level API for X Keyboard Extension
 Name:		libxklavier
 Version:	4.0
-Release: 	7%{?dist}
+Release: 	7%{?dist}.1
 License:	LGPLv2+
 Group:		Development/Libraries
 URL: http://gswitchit.sourceforge.net/
@@ -17,7 +17,6 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 # http://bugs.freedesktop.org/show_bug.cgi?id=22687
 Patch0: flags.patch
 Patch1: xinput-fixes.patch
-Patch2: catch-more-xerrors.patch
 
 %description
 libxklavier is a library providing a high-level API for the X Keyboard
@@ -40,8 +39,7 @@ needed to develop libxklavier applications.
 %prep
 %setup -q
 %patch0 -p1 -b .flags
-%patch1 -p0 -b .xinput
-%patch2 -p1 -b .catch-more-xerrors
+%patch1 -p1 -b .xinput
 
 %build
 
@@ -82,6 +80,10 @@ rm -rf %{buildroot}
 %{_datadir}/gtk-doc/html/libxklavier/
 
 %changelog
+* Tue Dec 13 2011 Ray Strode <rstrode@redhat.com> - 4.0-7.1
+- Catch more XInput errors
+  Resolves: #767267
+
 * Thu Dec 10 2009 Matthias Clasen <mclasen@redhat.com> - 4.0-7
 - Catch more X errors
 
