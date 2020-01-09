@@ -1,0 +1,25 @@
+--- libxklavier-4.0/libxklavier/xklavier.c	2011-10-26 01:25:57.120932662 -0400
++++ libxklavier-4.0/libxklavier/xklavier.c	2011-10-26 01:26:01.446933081 -0400
+@@ -361,6 +361,10 @@ 
+ 							     curr_toplvl_win));
+ 
+ 	if (have_toplevel_win) {
++		XklState old_state;
++
++		old_state = xkl_engine_priv (engine, curr_state);
++
+ 		gboolean have_state =
+ 		    xkl_engine_get_toplevel_window_state(engine,
+ 							 xkl_engine_priv
+@@ -383,6 +387,11 @@ 
+ 			  (have_state ?
+ 			   xkl_engine_priv(engine,
+ 					   curr_state).indicators : -1));
++
++		if (old_state.group != xkl_engine_priv (engine, curr_state).group) {
++			xkl_engine_lock_group (engine, xkl_engine_priv (engine, curr_state).group);
++		}
++
+ 	} else {
+ 		xkl_debug(160,
+ 			  "Could not find initial app. "

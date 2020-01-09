@@ -1,7 +1,7 @@
 Summary:	High-level API for X Keyboard Extension
 Name:		libxklavier
 Version:	4.0
-Release: 	7%{?dist}.1
+Release: 	9%{?dist}
 License:	LGPLv2+
 Group:		Development/Libraries
 URL: http://gswitchit.sourceforge.net/
@@ -17,6 +17,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 # http://bugs.freedesktop.org/show_bug.cgi?id=22687
 Patch0: flags.patch
 Patch1: xinput-fixes.patch
+# https://bugzilla.redhat.com/show_bug.cgi?id=726885
+Patch2: sync-active-group.patch
 
 %description
 libxklavier is a library providing a high-level API for the X Keyboard
@@ -39,7 +41,8 @@ needed to develop libxklavier applications.
 %prep
 %setup -q
 %patch0 -p1 -b .flags
-%patch1 -p1 -b .xinput
+%patch1 -p1 -b .xerror-and-xinput-fixes
+%patch2 -p1 -b .sync-active-group
 
 %build
 
@@ -80,9 +83,14 @@ rm -rf %{buildroot}
 %{_datadir}/gtk-doc/html/libxklavier/
 
 %changelog
-* Tue Dec 13 2011 Ray Strode <rstrode@redhat.com> - 4.0-7.1
+* Fri Mar 02 2012 Ray Strode <rstrode@redhat.com> 4.0-9
+- Fix problem where state holding active keyboard group
+  gets out of sync
+  Resolves: #726885
+
+* Fri Oct 21 2011 Ray Strode <rstrode@redhat.com> 4.0-8
 - Catch more XInput errors
-  Resolves: #767267
+  Resolves: #657726 
 
 * Thu Dec 10 2009 Matthias Clasen <mclasen@redhat.com> - 4.0-7
 - Catch more X errors
