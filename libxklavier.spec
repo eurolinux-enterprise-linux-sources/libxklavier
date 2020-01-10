@@ -1,7 +1,7 @@
 Summary:	High-level API for X Keyboard Extension
 Name:		libxklavier
 Version:	5.3
-Release: 	2.1%{?dist}
+Release: 	4%{?dist}
 License:	LGPLv2+
 Group:		Development/Libraries
 URL: http://www.freedesktop.org/wiki/Software/LibXklavier
@@ -68,6 +68,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.{a,la}
 %{_datadir}/gir-1.0/Xkl-1.0.gir
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 5.3-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 5.3-3
+- Mass rebuild 2013-12-27
+
 * Wed Apr 17 2013 Daniel Mach <dmach@redhat.com> - 5.3-2.1
 - Rebuild for gobject-introspection
 
