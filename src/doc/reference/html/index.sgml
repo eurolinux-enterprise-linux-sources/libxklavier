@@ -8,7 +8,16 @@
 <ANCHOR id="libxklavier-xkl-engine.details" href="libxklavier/libxklavier-xkl-engine.html#libxklavier-xkl-engine.details">
 <ANCHOR id="XklEnginePrivate" href="libxklavier/libxklavier-xkl-engine.html#XklEnginePrivate">
 <ANCHOR id="XklEngineStateChange" href="libxklavier/libxklavier-xkl-engine.html#XklEngineStateChange">
+<ANCHOR id="GROUP-CHANGED:CAPS" href="libxklavier/libxklavier-xkl-engine.html#GROUP-CHANGED:CAPS">
+<ANCHOR id="INDICATORS-CHANGED:CAPS" href="libxklavier/libxklavier-xkl-engine.html#INDICATORS-CHANGED:CAPS">
 <ANCHOR id="XklEngineFeatures" href="libxklavier/libxklavier-xkl-engine.html#XklEngineFeatures">
+<ANCHOR id="XKLF-CAN-TOGGLE-INDICATORS:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-CAN-TOGGLE-INDICATORS:CAPS">
+<ANCHOR id="XKLF-CAN-OUTPUT-CONFIG-AS-ASCII:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-CAN-OUTPUT-CONFIG-AS-ASCII:CAPS">
+<ANCHOR id="XKLF-CAN-OUTPUT-CONFIG-AS-BINARY:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-CAN-OUTPUT-CONFIG-AS-BINARY:CAPS">
+<ANCHOR id="XKLF-MULTIPLE-LAYOUTS-SUPPORTED:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-MULTIPLE-LAYOUTS-SUPPORTED:CAPS">
+<ANCHOR id="XKLF-REQUIRES-MANUAL-LAYOUT-MANAGEMENT:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-REQUIRES-MANUAL-LAYOUT-MANAGEMENT:CAPS">
+<ANCHOR id="XKLF-DEVICE-DISCOVERY:CAPS" href="libxklavier/libxklavier-xkl-engine.html#XKLF-DEVICE-DISCOVERY:CAPS">
+<ANCHOR id="XklState" href="libxklavier/libxklavier-xkl-engine.html#XklState">
 <ANCHOR id="XklEngine-struct" href="libxklavier/libxklavier-xkl-engine.html#XklEngine-struct">
 <ANCHOR id="xkl-engine-features-get-type" href="libxklavier/libxklavier-xkl-engine.html#xkl-engine-features-get-type">
 <ANCHOR id="xkl-engine-listen-modes-get-type" href="libxklavier/libxklavier-xkl-engine.html#xkl-engine-listen-modes-get-type">

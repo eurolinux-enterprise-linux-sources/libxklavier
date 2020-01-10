@@ -46,6 +46,12 @@ XklEngine
 @XKLF_REQUIRES_MANUAL_LAYOUT_MANAGEMENT: 
 @XKLF_DEVICE_DISCOVERY: 
 
+<!-- ##### STRUCT XklState ##### -->
+<para>
+
+</para>
+
+
 <!-- ##### STRUCT XklEngine ##### -->
 <para>
 

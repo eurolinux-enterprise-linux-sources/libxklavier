@@ -16,6 +16,7 @@
     <keyword type="struct" name="XklEnginePrivate" link="libxklavier-xkl-engine.html#XklEnginePrivate"/>
     <keyword type="enum" name="enum XklEngineStateChange" link="libxklavier-xkl-engine.html#XklEngineStateChange"/>
     <keyword type="enum" name="enum XklEngineFeatures" link="libxklavier-xkl-engine.html#XklEngineFeatures"/>
+    <keyword type="struct" name="XklState" link="libxklavier-xkl-engine.html#XklState"/>
     <keyword type="struct" name="XklEngine" link="libxklavier-xkl-engine.html#XklEngine-struct"/>
     <keyword type="function" name="xkl_engine_features_get_type ()" link="libxklavier-xkl-engine.html#xkl-engine-features-get-type"/>
     <keyword type="function" name="xkl_engine_listen_modes_get_type ()" link="libxklavier-xkl-engine.html#xkl-engine-listen-modes-get-type"/>
@@ -46,5 +47,13 @@
     <keyword type="function" name="xkl_set_log_appender ()" link="libxklavier-xklavier.html#xkl-set-log-appender"/>
     <keyword type="function" name="xkl_set_debug_level ()" link="libxklavier-xklavier.html#xkl-set-debug-level"/>
     <keyword type="macro" name="xkl_debug()" link="libxklavier-xklavier.html#xkl-debug"/>
+    <keyword type="constant" name="GROUP_CHANGED" link="libxklavier-xkl-engine.html#GROUP-CHANGED:CAPS"/>
+    <keyword type="constant" name="INDICATORS_CHANGED" link="libxklavier-xkl-engine.html#INDICATORS-CHANGED:CAPS"/>
+    <keyword type="constant" name="XKLF_CAN_TOGGLE_INDICATORS" link="libxklavier-xkl-engine.html#XKLF-CAN-TOGGLE-INDICATORS:CAPS"/>
+    <keyword type="constant" name="XKLF_CAN_OUTPUT_CONFIG_AS_ASCII" link="libxklavier-xkl-engine.html#XKLF-CAN-OUTPUT-CONFIG-AS-ASCII:CAPS"/>
+    <keyword type="constant" name="XKLF_CAN_OUTPUT_CONFIG_AS_BINARY" link="libxklavier-xkl-engine.html#XKLF-CAN-OUTPUT-CONFIG-AS-BINARY:CAPS"/>
+    <keyword type="constant" name="XKLF_MULTIPLE_LAYOUTS_SUPPORTED" link="libxklavier-xkl-engine.html#XKLF-MULTIPLE-LAYOUTS-SUPPORTED:CAPS"/>
+    <keyword type="constant" name="XKLF_REQUIRES_MANUAL_LAYOUT_MANAGEMENT" link="libxklavier-xkl-engine.html#XKLF-REQUIRES-MANUAL-LAYOUT-MANAGEMENT:CAPS"/>
+    <keyword type="constant" name="XKLF_DEVICE_DISCOVERY" link="libxklavier-xkl-engine.html#XKLF-DEVICE-DISCOVERY:CAPS"/>
   </functions>
 </book>

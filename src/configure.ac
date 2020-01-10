@@ -1,7 +1,7 @@
 AC_PREREQ([2.63])
 
 AC_INIT([libxklavier],
-        [5.3],
+        [5.4],
         [http://bugs.freedesktop.org/enter_bug.cgi?product=libxklavier],
         [libxklavier])
 
@@ -20,7 +20,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 dnl for DLL
 dnl http://sources.redhat.com/autobook/autobook/autobook_91.html
-VERSION_INFO=19:0:3
+VERSION_INFO=20:0:4
 AC_SUBST(VERSION_INFO)
 
 # Check for programs
@@ -37,6 +37,9 @@ AM_GNU_GETTEXT_VERSION([0.17])
 
 # Introspection
 GOBJECT_INTROSPECTION_CHECK([1.30.0])
+
+# Vala
+VAPIGEN_CHECK([0.18.0.110])
 
 m4_ifset([GTK_DOC_CHECK], [
 GTK_DOC_CHECK(1.0)

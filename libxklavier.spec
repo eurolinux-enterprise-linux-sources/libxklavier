@@ -1,7 +1,7 @@
 Summary:	High-level API for X Keyboard Extension
 Name:		libxklavier
-Version:	5.3
-Release: 	4%{?dist}
+Version:	5.4
+Release: 	7%{?dist}
 License:	LGPLv2+
 Group:		Development/Libraries
 URL: http://www.freedesktop.org/wiki/Software/LibXklavier
@@ -14,7 +14,8 @@ BuildRequires: glib2-devel >= 2.6.0
 BuildRequires: iso-codes-devel
 BuildRequires: gobject-introspection-devel
 Requires: iso-codes
-Source: http://download.gnome.org/sources/libxklavier/5.3/%{name}-%{version}.tar.xz
+#Source: http://download.gnome.org/sources/libxklavier/5.3/%{name}-%{version}.tar.xz
+Source: http://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 
 %description
 libxklavier is a library providing a high-level API for the X Keyboard
@@ -37,6 +38,7 @@ needed to develop libxklavier applications.
 
 %build
 %configure \
+  --disable-vala \
   --disable-static \
   --with-xkb-base='%{_datadir}/X11/xkb' \
   --with-xkb-bin-base='%{_bindir}'
@@ -68,6 +70,17 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.{a,la}
 %{_datadir}/gir-1.0/Xkl-1.0.gir
 
 %changelog
+* Thu Jul 23 2015 Rui Matos <rmatos@redhat.com> - 5.4-7
+- Explicitly disable vala bindings support
+Resolves: #1246040 - error: Installed (but unpackaged) file(s) found
+
+* Mon May 18 2015 Matthias Clasen <mclasen@redhat.com> - 5.4-6
+- Fix up %%changelog
+Related: #1202874
+
+* Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 5.4-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 5.3-4
 - Mass rebuild 2014-01-24
 

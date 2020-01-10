@@ -1,7 +1,10 @@
 xkl_config_item_get_type
 xkl_config_item_new
+xkl_config_item_get_description
 xkl_config_item_set_description
+xkl_config_item_get_name
 xkl_config_item_set_name
+xkl_config_item_get_short_description
 xkl_config_item_set_short_description
 xkl_config_rec_activate
 xkl_config_rec_dump
@@ -81,6 +84,7 @@ xkl_engine_state_change_get_type
 xkl_engine_stop_listen
 xkl_engine_ungrab_key
 xkl_engine_VOID__FLAGS_INT_BOOLEAN
+xkl_engine_VOID__ENUM_INT_BOOLEAN
 xkl_get_country_name
 xkl_get_language_name
 xkl_get_last_error

@@ -1,6 +1,6 @@
 Name:		libxklavier
 Summary:	libXklavier library
-Version:	5.3
+Version:	5.4
 Release:	1
 License:	LGPL
 Group:		Development/Libraries
